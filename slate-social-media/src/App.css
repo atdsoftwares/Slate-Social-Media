@@ -1,51 +1,17 @@
-.App {
-  text-align: center;
+@import "https://deploy-preview-13--agri-component.netlify.app/css/components.css";
+
+:root {
+  --sky-blue-color: rgb(129, 129, 255);
+  --white-color: rgb(255, 255, 255);
+  --black-color: rgb(0, 0, 0);
+  --red-shade-color: rgb(255, 100, 100);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+* {
+  scroll-behavior: smooth;
+  padding: 0;
+  margin: 0;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #22201c;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.brand-title {
-  font-size: 3rem;
-  color: #d9d9d9;
-}
-
-.brand-title span {
-  color: #ffde59;
-}
-
-.brand-description {
-  font-size: 1.4rem;
-}
-
-.links {
-  display: flex;
-}
-
-.links a {
-  color: #d9d9d9;
-  font-size: 1.2rem;
-  margin: 1rem;
+a {
+  text-decoration: none;
 }
