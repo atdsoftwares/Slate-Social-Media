@@ -4,9 +4,12 @@ import Bookmarkpage from "./Pages/Bookmarkpage/Bookmarkpage";
 import Commentspage from "./Pages/Commentspage/Commentspage";
 import Explorepage from "./Pages/Explorepage/Explorepage";
 import Homepage from "./Pages/Homepage/Homepage";
-
+import Loginpage from "./Pages/Loginpage/Loginpage";
+import Mockman from "mockman-js";
 import Profielpage from "./Pages/Profilepage/Profielpage";
+import Signuppage from "./Pages/Signuppage/Signuppage";
 import Welcomepage from "./Pages/Welcomepage/Welcomepage";
+import Editpostpage from "./Pages/Editpostpage/Editpostpage";
 
 function App() {
   return (
@@ -14,10 +17,14 @@ function App() {
       <Routes>
         <Route path="/" element={<Welcomepage />} />
         <Route path="/explore" element={<Explorepage />} />
+        <Route path="/Edit/:_id" element={<Editpostpage />} />
         <Route path="/profile" element={<Profielpage />} />
         <Route path="/bookmark" element={<Bookmarkpage />} />
-        <Route path="/home" element={<Homepage />} />
-        <Route path="/comments" element={<Commentspage />} />
+        <Route exact path="/home" element={<Homepage />} />
+        <Route exact path="/comments" element={<Commentspage />} />
+        <Route exact path="/login" element={<Loginpage />} />
+        <Route exact path="/signup" element={<Signuppage />} />
+        <Route exact path="/mockbee" element={<Mockman />} />
       </Routes>
     </div>
   );

@@ -21,7 +21,7 @@ export const users = [
   {
     _id: uuid(),
     fullName: "Naman Saxena ",
-    username: "inamansaxena",
+    username: "namansaxena",
     password: "namansaxena123",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
@@ -33,7 +33,7 @@ export const users = [
   {
     _id: uuid(),
     fullName: "Adarsh Patel",
-    username: "iadarshpatel",
+    username: "adarshpatel",
     password: "adarshpatel123",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
