@@ -1,19 +1,18 @@
 import React from "react";
+import EditPostForm from "../../Components/EditPostForm/EditPostForm";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
-import Profileview from "../../Components/Profileview/Profileview";
 import Sidebar from "../../Components/Sidebar/Sidebar";
-import PostModel from "../../Components/Post Model/PostModel";
-function Profielpage() {
+
+function Editpostpage() {
   return (
     <div>
       <Header />
       <Sidebar />
-      <Profileview />
-
+      <EditPostForm />
       <Footer />
     </div>
   );
 }
 
-export default Profielpage;
+export default Editpostpage;
