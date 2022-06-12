@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useUserContext } from "../Context/UserContext";
-import { getUsersFn } from "../Services/UserServices/Userservices";
+import { getUsersFn } from "../Services/User/Userservices";
 import "./AccountSidebar.css";
 function AccountSidebar() {
   const { state, userDispatch } = useUserContext();
@@ -19,7 +19,7 @@ function AccountSidebar() {
       />
 
       {getUsers.map((user) => (
-        <div className="account-follow-details">
+        <div className="account-follow-details" key={user._id}>
           <img src={user.avatar} alt="avatar" className="avatar-img" />
           <h3 className="account-follow-details-text-name">{user.fullName}</h3>
           <span class="material-icons followicon">person_add</span>
