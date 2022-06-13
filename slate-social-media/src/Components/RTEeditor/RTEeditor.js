@@ -5,6 +5,7 @@ import "react-quill/dist/quill.snow.css";
 import quillEmoji from "react-quill-emoji";
 import "react-quill-emoji/dist/quill-emoji.css";
 import "./RTEeditor.css";
+import { useComposePostContext } from "../Context/PostContext";
 const modules = {
   toolbar: {
     container: [
@@ -22,26 +23,19 @@ const modules = {
 };
 
 function RTEeditor() {
-  Quill.register("modules/imageResize", ImageResize);
-  Quill.register(
-    {
-      "formats/emoji": quillEmoji.EmojiBlot,
-      "modules/emoji-toolbar": quillEmoji.ToolbarEmoji,
-      "modules/emoji-textarea": quillEmoji.TextAreaEmoji,
-      "modules/emoji-shortname": quillEmoji.ShortNameEmoji,
-    },
-    true
-  );
-
-  const [value, setValue] = useState("");
-  console.log("🚀 ~ file: RTEeditor.js ~ line 38 ~ RTEeditor ~ value", value);
+  const { editorText, postDispatch } = useComposePostContext();
 
   return (
     <ReactQuill
       modules={modules}
       theme="snow"
-      value={value}
-      onChange={setValue}
+      value={editorText}
+      onChange={(event) =>
+        postDispatch({
+          type: "EDITOR_TEXT",
+          payload: event,
+        })
+      }
     />
   );
 }
