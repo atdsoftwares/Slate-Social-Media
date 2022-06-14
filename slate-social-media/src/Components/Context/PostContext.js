@@ -36,6 +36,11 @@ function PostContext({ children }) {
           ...state,
           username: action.payload,
         };
+      case "ADD_TO_BOOKMARKS":
+        return {
+          ...state,
+          addToBookmarks: action.payload,
+        };
 
       default:
         return state;
@@ -49,9 +54,17 @@ function PostContext({ children }) {
     video: "",
     editorText: "",
     username: "",
+    addToBookmarks: [],
   });
-  const { composePost, getComposePost, image, video, editorText, username } =
-    state;
+  const {
+    composePost,
+    getComposePost,
+    image,
+    video,
+    editorText,
+    username,
+    addToBookmarks,
+  } = state;
 
   return (
     <div>
@@ -65,6 +78,7 @@ function PostContext({ children }) {
           editorText,
           username,
           composePost,
+          addToBookmarks,
         }}
       >
         {children}

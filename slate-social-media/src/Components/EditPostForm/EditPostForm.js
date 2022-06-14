@@ -12,9 +12,9 @@ import "./EditPostForm.css";
 function EditPostForm() {
   const { image, video, editorText, createdAt, postDispatch } =
     useComposePostContext();
-  const { getUsers } = useUserContext();
 
   const [_id, setId] = useState();
+  const { getUsers } = useUserContext();
   const { state, userDispatch } = useUserContext();
   const { getUserDetails } = state;
 

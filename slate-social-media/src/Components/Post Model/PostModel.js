@@ -2,7 +2,12 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useComposePostContext } from "../Context/PostContext";
 import { useUserContext } from "../Context/UserContext";
-import { deletePostFn, editPostFn } from "../Services/Post/Postservices";
+import {
+  addPostToBookmarkFn,
+  deletePostFn,
+  editPostFn,
+  removeBookmarkedPostsFn,
+} from "../Services/Post/Postservices";
 import "./PostModel.css";
 function PostModel({ postdata }) {
   const {
@@ -19,13 +24,14 @@ function PostModel({ postdata }) {
 
   const { state } = useUserContext();
   const { getUsers } = state;
-  const { postDispatch } = useComposePostContext();
+  const { postDispatch, addToBookmarks } = useComposePostContext();
+  console.log(
+    "🚀 ~ file: PostModel.js ~ line 28 ~ PostModel ~ addToBookmarks",
+    addToBookmarks
+  );
   const userdata = getUsers.filter((u) => u.username === username);
   const { avatar, fullName } = userdata[0];
 
-  // useEffect(() => {
-  //   getUsersFn(userDispatch);
-  // }, [userDispatch]);
   const [display, setDisplay] = useState("none");
 
   function toggleModal() {
@@ -86,7 +92,22 @@ function PostModel({ postdata }) {
             <Link to="/comments">
               <span class="material-icons postcardmi">chat_bubble_outline</span>
             </Link>
-            <span class="material-icons postcardmi">bookmark_border</span>
+
+            {addToBookmarks.some((prod) => prod._id === postdata._id) ? (
+              <span
+                class="material-icons postcardmi"
+                onClick={() => removeBookmarkedPostsFn(postDispatch, _id)}
+              >
+                bookmark
+              </span>
+            ) : (
+              <span
+                class="material-icons postcardmi"
+                onClick={() => addPostToBookmarkFn(postDispatch, _id)}
+              >
+                bookmark_border
+              </span>
+            )}
           </div>
         </div>
       </div>

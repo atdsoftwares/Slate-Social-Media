@@ -4,17 +4,18 @@ import { useLoginSignupContext } from "../Context/LoginSignupContext";
 import { useUserContext } from "../Context/UserContext";
 import { getUserDetailsFn } from "../Services/User/Userservices";
 import "./Bookmarkedpost.css";
-function Bookmarkedpost() {
-  const { getUserDetails, userDispatch } = useUserContext();
+function Bookmarkedpost({ postdata }) {
+  const { content, image, video, createdAt } = postdata;
+  console.log(
+    "🚀 ~ file: Bookmarkedpost.js ~ line 9 ~ Bookmarkedpost ~ postdata",
+    postdata
+  );
+  const { getUserDetails, userDispatch, getUsers } = useUserContext();
 
-  const { loginData } = useLoginSignupContext();
-  const username = loginData._id;
+  const { username } = getUserDetails;
+  const userdata = getUsers.filter((u) => u.username === username);
+  const { avatar, fullName } = userdata[0];
 
-  useEffect(() => {
-    getUserDetailsFn(userDispatch, username);
-  }, []);
-
-  const { avatar } = getUserDetails;
   return (
     <div className="post-container">
       <div class="f-card">
@@ -22,29 +23,25 @@ function Bookmarkedpost() {
           <div class="options">
             <i class="fa fa-chevron-down"></i>
           </div>
-          <img
-            class="co-logo"
-            src="http://placehold.it/40x40"
-            alt="user-avatar"
-          />
+          <img class="co-logo" src={avatar} alt="user-avatar" />
           <div class="co-name">
-            <p>Tanaay Praatp</p>
+            <p>{fullName}</p>
           </div>
           <div class="time">
-            <span href="#">Posted at : {Date()}</span>
+            <span href="#">Posted at : {createdAt}</span>
           </div>
         </div>
-        <div class="content">
-          <p>
-            Height is optional, if no height is specified the image will be a
-            square.Example: text area content
-          </p>
-        </div>
+        <div
+          class="content"
+          dangerouslySetInnerHTML={{ __html: content }}
+        ></div>
 
         <div class="reference">
           <div class="reference-content">
-            <img class="reference-thumb" src="/" alt="uploaded-by-user" />
-            <video class="reference-video" src="/" controls />
+            {image && (
+              <img class="reference-thumb" src={image} alt="uploaded-by-user" />
+            )}
+            {video && <video class="reference-video" src={video} controls />}
           </div>
         </div>
         <div class="social">
