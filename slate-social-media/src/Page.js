@@ -1,5 +1,6 @@
 import React from "react";
 import App from "./App";
+import CommentsContext from "./Components/Context/CommentsContext";
 import LoginSignupContext from "./Components/Context/LoginSignupContext";
 import PostContext from "./Components/Context/PostContext";
 import UserContext from "./Components/Context/UserContext";
@@ -10,7 +11,9 @@ function Page() {
       <LoginSignupContext>
         <UserContext>
           <PostContext>
-            <App />
+            <CommentsContext>
+              <App />
+            </CommentsContext>
           </PostContext>
         </UserContext>
       </LoginSignupContext>

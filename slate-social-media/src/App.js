@@ -21,7 +21,7 @@ function App() {
         <Route path="/profile" element={<Profielpage />} />
         <Route path="/bookmark" element={<Bookmarkpage />} />
         <Route exact path="/home" element={<Homepage />} />
-        <Route exact path="/comments" element={<Commentspage />} />
+        <Route exact path="/comments/:_id" element={<Commentspage />} />
         <Route exact path="/login" element={<Loginpage />} />
         <Route exact path="/signup" element={<Signuppage />} />
         <Route exact path="/mockbee" element={<Mockman />} />
