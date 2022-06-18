@@ -10,6 +10,7 @@ function Bookmarkedpost({ postdata }) {
     "🚀 ~ file: Bookmarkedpost.js ~ line 9 ~ Bookmarkedpost ~ postdata",
     postdata
   );
+
   const { getUserDetails, userDispatch, getUsers } = useUserContext();
 
   const { username } = getUserDetails;
