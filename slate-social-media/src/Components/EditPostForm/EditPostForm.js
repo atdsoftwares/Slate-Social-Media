@@ -14,13 +14,9 @@ function EditPostForm() {
     useComposePostContext();
 
   const [_id, setId] = useState();
-  const { getUsers } = useUserContext();
-  const { state, userDispatch } = useUserContext();
-  const { getUserDetails } = state;
+  const { getUserDetails } = useUserContext();
 
-  const { username } = getUserDetails;
-  const userdata = getUsers.filter((u) => u.username === username);
-  const { avatar, fullName } = userdata[0];
+  const { username, avatar, fullName } = getUserDetails;
 
   async function updatePostFn(e) {
     e.preventDefault();
@@ -66,7 +62,6 @@ function EditPostForm() {
   }
 
   function handleVideo(e) {
-    console.log("video");
     postDispatch({
       type: "VIDEO",
       payload: URL.createObjectURL(e.target.files[0]),
