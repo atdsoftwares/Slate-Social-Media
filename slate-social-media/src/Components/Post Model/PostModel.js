@@ -5,32 +5,33 @@ import { useUserContext } from "../Context/UserContext";
 import {
   addPostToBookmarkFn,
   deletePostFn,
+  dislikesPostFn,
   editPostFn,
+  likesPostFn,
   removeBookmarkedPostsFn,
 } from "../Services/Post/Postservices";
 import "./PostModel.css";
 function PostModel({ postdata }) {
   const {
+    avatar,
+    fullName,
     _id,
     username,
     content,
     createdAt,
     image,
     video,
-
-    // likes: { likeCount, likedBy, dislikedBy },
+    likes: { likeCount, likedBy, dislikedBy },
     // updatedAt,
   } = postdata;
 
-  const { state } = useUserContext();
-  const { getUsers } = state;
-  const { postDispatch, addToBookmarks } = useComposePostContext();
+  const { getuserDetails } = useUserContext();
   console.log(
-    "🚀 ~ file: PostModel.js ~ line 28 ~ PostModel ~ addToBookmarks",
-    addToBookmarks
+    "🚀 ~ file: PostModel.js ~ line 29 ~ PostModel ~ getuserDetails",
+    getuserDetails
   );
-  const userdata = getUsers.filter((u) => u.username === username);
-  const { avatar, fullName } = userdata[0];
+  const { postDispatch, addToBookmarks, getComposePost } =
+    useComposePostContext();
 
   const [display, setDisplay] = useState("none");
 
@@ -88,11 +89,30 @@ function PostModel({ postdata }) {
         </div>
         <div class="social">
           <div class="social-buttons">
-            <span class="material-icons postcardmi">thumb_up_off_alt</span>
-            <Link to="/comments">
+            {/* {getComposePost.some(
+              (prod) => prod.username === postdata.username
+            ) ? ( */}
+            {getComposePost.some((prod) => prod._id === _id) ? (
+              // user id should be compared inside liked by array
+              // {postdata.likes.likedBy.some((ele) => ele._id === postdata._id) ? (
+              <span
+                class="material-icons postcardmi"
+                onClick={() => likesPostFn(postDispatch, _id)}
+              >
+                favorite_border
+              </span>
+            ) : (
+              <span
+                class="material-icons postcardmi"
+                onClick={() => dislikesPostFn(postDispatch, _id)}
+              >
+                favorite
+              </span>
+            )}
+            {likeCount}
+            <Link to={`/comments/${_id}`}>
               <span class="material-icons postcardmi">chat_bubble_outline</span>
             </Link>
-
             {addToBookmarks.some((prod) => prod._id === postdata._id) ? (
               <span
                 class="material-icons postcardmi"

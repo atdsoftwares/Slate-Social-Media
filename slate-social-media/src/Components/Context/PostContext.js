@@ -53,7 +53,6 @@ function PostContext({ children }) {
 
           getPostsByUserName: action.payload,
         };
-
       default:
         return state;
     }

@@ -7,6 +7,7 @@ import "./Posteditor.css";
 import { useUserContext } from "../Context/UserContext";
 import { useLoginSignupContext } from "../Context/LoginSignupContext";
 import { getUserDetailsFn } from "../Services/User/Userservices";
+import Editpost from "../editpost/Editpost";
 function Posteditor() {
   const { postDispatch, state } = useComposePostContext();
   const { video, image, composePost, editorText } = state;
@@ -19,7 +20,7 @@ function Posteditor() {
     getUserDetailsFn(userDispatch, _id);
   }, []);
 
-  const { avatar, username } = getUserDetails;
+  const { avatar, username, fullName } = getUserDetails;
 
   function handleImage(e) {
     postDispatch({
@@ -35,7 +36,15 @@ function Posteditor() {
     });
   }
 
-  const post = { _id: uuid(), content: editorText, image: image, video: video };
+  const post = {
+    _id: uuid(),
+    content: editorText,
+    image: image,
+    video: video,
+    username: username,
+    avatar: avatar,
+    fullName: fullName,
+  };
 
   function submitForm(e) {
     e.preventDefault();
@@ -52,6 +61,7 @@ function Posteditor() {
               <div> @{username}</div>
             </div>
             <RTEeditor editorText={editorText} />
+            {/* <Editpost /> */}
           </div>
           <div className="icons-button">
             <label>
