@@ -8,7 +8,7 @@
   align-items: flex-start;
   justify-content: flex-start;
   width: 40%;
-  height: 62vh;
+  height: 25vh;
   background-color: #f5f1f1;
   border-radius: 5px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -32,21 +32,21 @@ img.bg-poster-img {
 }
 .btn-text-profile {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
-  width: 75%;
+  width: 100%;
   position: relative;
   bottom: 8rem;
-  left: 11rem;
+  left: 5rem;
 }
 .profile-counter {
   display: flex;
-  justify-content: space-between;
-  width: 75%;
-  padding: 1rem;
-  height: 3rem;
+  justify-content: space-around;
+  width: 60%;
   position: relative;
-  bottom: 8rem;
+  background-color: white;
+  bottom: 9rem;
+  height: 4rem;
   left: 6rem;
-  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
 }
