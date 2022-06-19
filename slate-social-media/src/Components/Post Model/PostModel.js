@@ -21,15 +21,16 @@ function PostModel({ postdata }) {
     createdAt,
     image,
     video,
+    likes,
     likes: { likeCount, likedBy, dislikedBy },
     // updatedAt,
   } = postdata;
 
-  const { getuserDetails } = useUserContext();
-  console.log(
-    "🚀 ~ file: PostModel.js ~ line 29 ~ PostModel ~ getuserDetails",
-    getuserDetails
+  const { getUserDetails } = useUserContext();
+  const isLiked = likes.likedBy.find(
+    (likedUser) => likedUser?.username === getUserDetails.username
   );
+
   const { postDispatch, addToBookmarks, getComposePost } =
     useComposePostContext();
 
@@ -92,21 +93,22 @@ function PostModel({ postdata }) {
             {/* {getComposePost.some(
               (prod) => prod.username === postdata.username
             ) ? ( */}
-            {getComposePost.some((prod) => prod._id === _id) ? (
-              // user id should be compared inside liked by array
-              // {postdata.likes.likedBy.some((ele) => ele._id === postdata._id) ? (
-              <span
-                class="material-icons postcardmi"
-                onClick={() => likesPostFn(postDispatch, _id)}
-              >
-                favorite_border
-              </span>
-            ) : (
+            {/* {getComposePost.some((prod) => prod._id === _id) ? ( */}
+            {/* // user id should be compared inside liked by array */}
+            {getUserDetails?.username === isLiked?.username &&
+            getUserDetails?._id ? (
               <span
                 class="material-icons postcardmi"
                 onClick={() => dislikesPostFn(postDispatch, _id)}
               >
                 favorite
+              </span>
+            ) : (
+              <span
+                class="material-icons postcardmi"
+                onClick={() => likesPostFn(postDispatch, _id)}
+              >
+                favorite_border
               </span>
             )}
             {likeCount}

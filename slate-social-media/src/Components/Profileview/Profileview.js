@@ -38,7 +38,7 @@ function Profileview() {
           {loginData.username === username ? (
             <button
               className="btn btn-warning-outline bnt-follow"
-              // onClick={() => unFollowUserFn(userDispatch, userId)}
+              onClick={() => unFollowUserFn(userDispatch, userId)}
             >
               edit
               <span class="material-icons profilemi">edit</span>
