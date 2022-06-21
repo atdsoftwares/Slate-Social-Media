@@ -1,27 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import PostModel from "../../Components/Post Model/PostModel";
 import { useCommentContext } from "../Context/CommentsContext";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
-import { useComposePostContext } from "../Context/PostContext";
 import { useUserContext } from "../Context/UserContext";
 import {
   downvoteCommentFn,
-  getCommentsbyPostId,
   postCommentFn,
   upvoteCommentFn,
 } from "../Services/Comments/Commentsservices";
-import {
-  getComposedPostFn,
-  getPostsbyIdFn,
-} from "../Services/Post/Postservices";
-import { getUserDetailsFn } from "../Services/User/Userservices";
+import { getPostsbyIdFn } from "../Services/Post/Postservices";
+
 import "./Commentsmodel.css";
 function Commentsmodel({ commentsdata }) {
   const { getUserDetails } = useUserContext();
-  const { composeComment, commentsDispatch, commentBoxInput } =
-    useCommentContext();
-  const { postDispatch } = useComposePostContext();
+  const { commentsDispatch, commentBoxInput } = useCommentContext();
+
   const { _id, avatar, fullName, content, image, video, username, comments } =
     commentsdata;
 
@@ -34,7 +25,6 @@ function Commentsmodel({ commentsdata }) {
   function submitComment(e) {
     e.preventDefault();
     postCommentFn(commentsDispatch, _id, comment);
-    console.log("data is being submitetd");
   }
 
   return (
