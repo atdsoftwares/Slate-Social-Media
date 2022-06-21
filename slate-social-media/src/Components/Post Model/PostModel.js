@@ -90,11 +90,6 @@ function PostModel({ postdata }) {
         </div>
         <div class="social">
           <div class="social-buttons">
-            {/* {getComposePost.some(
-              (prod) => prod.username === postdata.username
-            ) ? ( */}
-            {/* {getComposePost.some((prod) => prod._id === _id) ? ( */}
-            {/* // user id should be compared inside liked by array */}
             {getUserDetails?.username === isLiked?.username &&
             getUserDetails?._id ? (
               <span
