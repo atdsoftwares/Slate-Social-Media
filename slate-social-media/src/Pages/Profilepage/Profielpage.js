@@ -8,19 +8,14 @@ import { useCommentContext } from "../../Components/Context/CommentsContext";
 import { useUserContext } from "../../Components/Context/UserContext";
 import { getPostByUsernameFn } from "../../Components/Services/Post/Postservices";
 import { useComposePostContext } from "../../Components/Context/PostContext";
+import Profielpagepostcard from "../../Components/Cards/Profilepagepostcard";
 function Profielpage() {
-  const { commentsDispatch } = useCommentContext();
   const { getUserDetails } = useUserContext();
   const { username } = getUserDetails;
 
   const { getPostsByUserName, postDispatch } = useComposePostContext();
-  console.log(
-    "🚀 ~ file: Profielpage.js ~ line 17 ~ Profielpage ~ getPostsByUserName",
-    getPostsByUserName
-  );
 
   useEffect(() => {
-    console.log(`I am being called `);
     getPostByUsernameFn(postDispatch, username);
   }, [postDispatch, username]);
   return (
@@ -29,8 +24,13 @@ function Profielpage() {
       <Sidebar />
       <Profileview />
 
-      {getPostsByUserName.map((postdata) => {
-        return <PostModel key={postdata._id} postdata={postdata} />;
+      {getPostsByUserName.map((newpostdata) => {
+        return (
+          <Profielpagepostcard
+            key={newpostdata._id}
+            newpostdata={newpostdata}
+          />
+        );
       })}
 
       <Footer />
