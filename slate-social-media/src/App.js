@@ -11,6 +11,8 @@ import Signuppage from "./Pages/Signuppage/Signuppage";
 import Welcomepage from "./Pages/Welcomepage/Welcomepage";
 import Editpostpage from "./Pages/Editpostpage/Editpostpage";
 
+import ViewUserProfilesPage from "./Pages/ViewUserProfiles/ViewUserProfilesPage";
+
 function App() {
   return (
     <div>
@@ -19,6 +21,7 @@ function App() {
         <Route path="/explore" element={<Explorepage />} />
         <Route path="/Edit/:_id" element={<Editpostpage />} />
         <Route path="/profile" element={<Profielpage />} />
+        <Route path="/ViewProfile/:id" element={<ViewUserProfilesPage />} />
         <Route path="/bookmark" element={<Bookmarkpage />} />
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/comments/:_id" element={<Commentspage />} />
