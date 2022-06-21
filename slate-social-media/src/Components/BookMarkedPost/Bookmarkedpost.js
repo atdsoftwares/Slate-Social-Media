@@ -1,17 +1,11 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
+import React from "react";
 import { useUserContext } from "../Context/UserContext";
-import { getUserDetailsFn } from "../Services/User/Userservices";
+
 import "./Bookmarkedpost.css";
 function Bookmarkedpost({ postdata }) {
   const { content, image, video, createdAt } = postdata;
-  console.log(
-    "🚀 ~ file: Bookmarkedpost.js ~ line 9 ~ Bookmarkedpost ~ postdata",
-    postdata
-  );
 
-  const { getUserDetails, userDispatch, getUsers } = useUserContext();
+  const { getUserDetails, getUsers } = useUserContext();
 
   const { username } = getUserDetails;
   const userdata = getUsers.filter((u) => u.username === username);
@@ -47,7 +41,6 @@ function Bookmarkedpost({ postdata }) {
         </div>
         <div class="social">
           <div class="social-buttons">
-            {/* <span class="material-icons postcardmi">thumb_up_off_alt</span> */}
             <span class="material-icons postcardmi">bookmark_border</span>
           </div>
         </div>

@@ -10,16 +10,7 @@ import { getUsersFn } from "../Services/User/Userservices";
 import "./AccountSidebar.css";
 function AccountSidebar() {
   const { getUsers, userDispatch, getUserDetails } = useUserContext();
-  console.log(
-    "🚀 ~ file: AccountSidebar.js ~ line 12 ~ AccountSidebar ~ getUsers",
-    getUsers
-  );
-
-  const { following, followers } = getUsers;
-
-  const { loginData } = useLoginSignupContext();
-
-  const userId = getUserDetails._id;
+  const { following } = getUserDetails;
 
   // getuserdetail from usercontext id , send the saeme id
   useEffect(() => {
@@ -36,13 +27,18 @@ function AccountSidebar() {
 
       {getUsers.map((user) => (
         <div className="account-follow-details" key={user._id}>
-          <Link to={`/profile/${user._id}`}>
+          <Link to={`/ViewProfile/${user._id}`}>
             <img src={user.avatar} alt="avatar" className="avatar-img" />
           </Link>
           <h3 className="account-follow-details-text-name">{user.fullName}</h3>
 
-          {following?.find((userDetails) => userDetails._id === userId) ? (
-            <p> following</p>
+          {following && following?.some((u) => u._id === user._id) ? (
+            <span
+              class="material-icons followicon"
+              onClick={() => unFollowUserFn(userDispatch, user._id)}
+            >
+              person_remove
+            </span>
           ) : (
             <span
               class="material-icons followicon"
