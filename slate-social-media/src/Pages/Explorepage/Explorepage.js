@@ -13,11 +13,6 @@ function Explorepage() {
     getComposedPostFn(postDispatch);
   }, []);
 
-  console.log(
-    "🚀 ~ file: Explorepage.js ~ line 10 ~ Explorepage ~ getComposePost",
-    getComposePost
-  );
-
   return (
     <div>
       <Header />

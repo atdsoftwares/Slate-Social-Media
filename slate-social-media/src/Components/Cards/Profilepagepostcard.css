@@ -82,7 +82,6 @@ body {
   font-size: 1rem;
   padding-bottom: 0.2rem;
   line-height: 1.38;
-  margin-left: 2rem;
 }
 
 .reference {
@@ -144,7 +143,6 @@ img.reference-thumb:hover {
 .material-icons.postcardmi {
   font-size: 1.5rem;
   color: black;
-  cursor: pointer;
 }
 
 .social-buttons span {
@@ -161,7 +159,7 @@ img.reference-thumb:hover {
 .social-buttons span i {
   padding-right: 4px;
 }
-.comments-container {
+.post-container {
   margin-top: 5rem;
   margin-bottom: 5rem;
 }
@@ -176,79 +174,14 @@ img.reference-thumb:hover {
   align-items: center;
   flex-direction: column;
 }
-input[type="text"].commnet-text {
-  width: 100%;
-  padding: 1rem;
-  outline: none;
-}
-.comment-box-data {
-  display: flex;
-  width: 100%;
-  margin: 1rem;
-  justify-content: center;
-  align-items: center;
-  height: 5rem;
-}
-img.avatar_image {
-  height: 4rem;
-  width: 4rem;
-  border-radius: 50%;
-}
-.comment-card {
-  width: 100%;
-  height: 4rem;
-  display: flex;
-}
-.comment-box-data1 {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  margin: 1rem;
-}
-p.text-content {
-  margin: 2rem;
-}
-.username-and-avatar {
+.modal-container {
+  position: relative;
+  bottom: 2.5rem;
+  left: 4rem;
+  height: 2rem;
+  width: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-}
-hr {
-  width: 100%;
-  height: 1px;
-  background-color: #e5e5e5;
-}
-.like-dislike-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0.5rem;
-}
-.material-icons.commentsmi {
-  cursor: pointer;
-  font-size: 1.5rem;
-}
-input[type="submit"].btn-submit {
-  background-color: #365899;
-  color: white;
-  border: none;
-  padding: 0.5rem;
-  border-radius: 3px;
-  cursor: pointer;
-  font-size: 1rem;
-  margin-top: 1rem;
-  width: auto;
-}
-input[type="text"].input-comment-text {
-  width: 28vh;
-  padding: 1rem;
-  margin: 1rem;
-  outline: none;
-}
-.form-container {
-  /* margin-top: rem; */
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }

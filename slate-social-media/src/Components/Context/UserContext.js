@@ -15,6 +15,11 @@ function UserContext({ children }) {
           ...state,
           getUsers: action.payload,
         };
+      case "GET_USERS_BY_ID":
+        return {
+          ...state,
+          getUsersbyId: action.payload,
+        };
 
       case "GET_USER_DETAILS":
         return {
@@ -28,15 +33,16 @@ function UserContext({ children }) {
 
   const [state, userDispatch] = useReducer(userReducer, {
     getUsers: [],
+    getUsersbyId: [],
     getUserDetails: [],
   });
 
-  const { getUserDetails, getUsers } = state;
+  const { getUserDetails, getUsers, getUsersbyId } = state;
 
   return (
     <div>
       <userContext.Provider
-        value={{ state, userDispatch, getUserDetails, getUsers }}
+        value={{ state, userDispatch, getUserDetails, getUsers, getUsersbyId }}
       >
         {children}
       </userContext.Provider>

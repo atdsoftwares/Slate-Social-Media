@@ -9,13 +9,17 @@ import { formatDate } from "../utils/authUtils";
 export const posts = [
   {
     _id: uuid(),
-    content: "Hello I am tanay Pratap",
+    content: "Hello I am tanay  pratap",
     likes: {
-      likeCount: 0,
+      likeCount: 66,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "namansaxena",
+    username: "tanaypratap",
+    avatar:
+      "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/tanay.jpg",
+
+    fullName: "Tanay  Pratap",
     createdAt: formatDate(),
     updatedAt: formatDate(),
     comments: [
@@ -23,6 +27,8 @@ export const posts = [
         _id: uuid(),
         username: "adarshpatel",
         text: "I am adarsh patel front end developer in making.",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -30,8 +36,10 @@ export const posts = [
       },
       {
         _id: uuid(),
-        username: "Naman Saxena , naam to suna hoga .",
-        text: "Wow!",
+        username: "namansaxena",
+        text: "I am naman and I Wow!",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -41,20 +49,24 @@ export const posts = [
   },
   {
     _id: uuid(),
-    content: "Jo hoga dekha jayega",
+    content: "I am prankur a neogrammer.",
 
     likes: {
-      likeCount: 0,
+      likeCount: 15,
       likedBy: [],
       dislikedBy: [],
     },
-    username: "tanaypratap",
-
+    username: "iprankurpandey",
+    avatar:
+      "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/prankur.png",
+    fullName: "Prankur Pandey",
     comments: [
       {
         _id: uuid(),
-        username: "adarshpate;",
-        text: "Nothing is interesting.",
+        username: "adarshpatel",
+        text: "lern React js .",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -63,7 +75,9 @@ export const posts = [
       {
         _id: uuid(),
         username: "namansaxena",
-        text: "Nothing is impossible .",
+        text: "learn java  .",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -72,5 +86,85 @@ export const posts = [
     ],
     createdAt: formatDate(),
     updatedAt: formatDate(),
+  },
+
+  {
+    _id: uuid(),
+    content: "Hello I am naman saxena",
+    likes: {
+      likeCount: 66,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "namansaxena",
+    avatar:
+      "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
+    fullName: "Naman Saxena",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "adarshpatel",
+        text: "I am adarsh patel front end developer in making.",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "namansaxena",
+        text: "I am naman and I Wow!",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
+  },
+
+  {
+    _id: uuid(),
+    content: "Hello I am adarsh pratel",
+    likes: {
+      likeCount: 42,
+      likedBy: [],
+      dislikedBy: [],
+    },
+    username: "adarshpatel",
+    avatar:
+      "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
+    fullName: "Adarsh Patel",
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+    comments: [
+      {
+        _id: uuid(),
+        username: "adarshpatel",
+        text: "I am adarsh patel front end developer in making.",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+      {
+        _id: uuid(),
+        username: "namansaxena",
+        text: "I am naman and I Wow!",
+        avatar:
+          "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
+        votes: {
+          upvotedBy: [],
+          downvotedBy: [],
+        },
+      },
+    ],
   },
 ];

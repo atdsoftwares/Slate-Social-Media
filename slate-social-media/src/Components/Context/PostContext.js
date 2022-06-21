@@ -36,7 +36,23 @@ function PostContext({ children }) {
           ...state,
           username: action.payload,
         };
+      case "ADD_TO_BOOKMARKS":
+        return {
+          ...state,
+          addToBookmarks: action.payload,
+        };
+      case "LIKESPOST":
+        return {
+          ...state,
 
+          getComposePost: action.payload,
+        };
+      case "GET_POSTS_BY_USERNAME":
+        return {
+          ...state,
+
+          getPostsByUserName: action.payload,
+        };
       default:
         return state;
     }
@@ -49,9 +65,21 @@ function PostContext({ children }) {
     video: "",
     editorText: "",
     username: "",
+    addToBookmarks: [],
+    likespost: [],
+    getPostsByUserName: [],
   });
-  const { composePost, getComposePost, image, video, editorText, username } =
-    state;
+  const {
+    composePost,
+    getComposePost,
+    image,
+    video,
+    editorText,
+    username,
+    addToBookmarks,
+    likespost,
+    getPostsByUserName,
+  } = state;
 
   return (
     <div>
@@ -65,6 +93,9 @@ function PostContext({ children }) {
           editorText,
           username,
           composePost,
+          likespost,
+          addToBookmarks,
+          getPostsByUserName,
         }}
       >
         {children}

@@ -72,4 +72,139 @@ function editPostFn(_id, image, video, content) {
   localStorage.setItem("content", content);
 }
 
-export { composeNewPostFn, getComposedPostFn, deletePostFn, editPostFn };
+async function addPostToBookmarkFn(postDispatch, _id) {
+  try {
+    const response = await axios({
+      method: "post",
+      url: `/api/users/bookmark/${_id}`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: {},
+    }).then((response) =>
+      postDispatch({
+        type: "ADD_TO_BOOKMARKS",
+        payload: response.data.bookmarks,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function getBookmarkedPostsFn(postDispatch) {
+  try {
+    const response = await axios({
+      method: "get",
+      url: `/api/users/bookmark/`,
+      headers: { authorization: localStorage.getItem("token") },
+    }).then((response) =>
+      postDispatch({
+        type: "ADD_TO_BOOKMARKS",
+        payload: response.data.bookmarks,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function removeBookmarkedPostsFn(postDispatch, _id) {
+  try {
+    const response = await axios({
+      method: "post",
+      url: `/api/users/remove-bookmark/${_id}`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: {},
+    }).then((response) =>
+      postDispatch({
+        type: "ADD_TO_BOOKMARKS",
+        payload: response.data.bookmarks,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function likesPostFn(postDispatch, _id) {
+  try {
+    const res = await axios({
+      method: "post",
+      url: `/api/posts/like/${_id}`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: {},
+    }).then((response) => {
+      postDispatch({
+        type: "LIKESPOST",
+        // type: "GET_COMPOSE_POST",
+        payload: response.data.posts,
+      });
+    });
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function dislikesPostFn(postDispatch, _id) {
+  try {
+    const response = await axios({
+      method: "post",
+      url: `/api/posts/dislike/${_id}`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: {},
+    }).then((response) =>
+      postDispatch({
+        type: "LIKESPOST",
+        // type: "GET_COMPOSE_POST",
+        payload: response.data.posts,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function getPostsbyIdFn(commentsDispatch, _id) {
+  try {
+    const response = await axios({
+      method: "get",
+      url: `/api/posts/${_id}`,
+    }).then((response) =>
+      commentsDispatch({
+        type: "COMMENTS",
+        payload: response.data.post,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+async function getPostByUsernameFn(postDispatch, username) {
+  try {
+    const response = await axios({
+      method: "get",
+      url: `/api/posts/user/${username}`,
+    }).then((response) =>
+      postDispatch({
+        type: "GET_POSTS_BY_USERNAME",
+        payload: response.data.posts,
+      })
+    );
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
+export {
+  composeNewPostFn,
+  getComposedPostFn,
+  deletePostFn,
+  editPostFn,
+  addPostToBookmarkFn,
+  getBookmarkedPostsFn,
+  likesPostFn,
+  removeBookmarkedPostsFn,
+  dislikesPostFn,
+  getPostsbyIdFn,
+  getPostByUsernameFn,
+};

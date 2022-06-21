@@ -30,22 +30,22 @@ img.bg-poster-img {
   width: 100%;
   border-radius: 0.5rem;
 }
-.btn-text-profile {
+.btn-text-profile1 {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100%;
   position: relative;
-  bottom: 8rem;
-  left: 5rem;
+  bottom: 7rem;
+  left: 1rem;
 }
-.profile-counter {
+.profile-counter1 {
   display: flex;
   justify-content: space-around;
   width: 60%;
   position: relative;
   background-color: white;
-  bottom: 9rem;
+  bottom: 6rem;
   height: 4rem;
   left: 6rem;
   box-shadow: 0 1px 2px 0 rgb(0 0 0 / 0.05);
