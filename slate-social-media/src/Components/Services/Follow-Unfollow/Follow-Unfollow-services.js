@@ -31,6 +31,7 @@ export async function unFollowUserFn(userDispatch, userId) {
         payload: response.data.user,
       })
     );
+    console.log(response);
   } catch (error) {
     console.log(`something went wrong`, error);
   }
