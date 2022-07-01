@@ -195,6 +195,24 @@ async function getPostByUsernameFn(postDispatch, username) {
   }
 }
 
+async function updatePostFn(_id, post, postDispatch) {
+  try {
+    const response = await axios({
+      method: "post",
+      url: `/api/posts/edit/${_id}`,
+      headers: { authorization: localStorage.getItem("token") },
+      data: { postData: { ...post } },
+    }).then((response) => {
+      postDispatch({
+        type: "COMPOSE_POST",
+        payload: response.data.posts,
+      });
+    });
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
 export {
   composeNewPostFn,
   getComposedPostFn,
@@ -207,4 +225,5 @@ export {
   dislikesPostFn,
   getPostsbyIdFn,
   getPostByUsernameFn,
+  updatePostFn,
 };

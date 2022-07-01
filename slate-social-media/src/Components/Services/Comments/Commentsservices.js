@@ -29,7 +29,7 @@ export async function upvoteCommentFn(commentsDispatch, postId, commentId) {
     }).then((response) =>
       commentsDispatch({
         type: "COMPOSE_COMMENT",
-        payload: response.data.posts,
+        payload: response.data.comments,
       })
     );
     console.log(response);
