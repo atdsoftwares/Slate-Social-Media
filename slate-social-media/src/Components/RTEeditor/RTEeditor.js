@@ -22,20 +22,16 @@ const modules = {
   "emoji-shortname": true,
 };
 
-function RTEeditor() {
-  const { editorText, postDispatch } = useComposePostContext();
+function RTEeditor({ editorText }) {
+  // const { editorText, postDispatch } = useComposePostContext();
+  // const [editorText, setEditorText] = useState("");
 
   return (
     <ReactQuill
       modules={modules}
       theme="snow"
       value={editorText}
-      onChange={(event) =>
-        postDispatch({
-          type: "EDITOR_TEXT",
-          payload: event,
-        })
-      }
+      // onChange={(value) => setEditorText(value)}
     />
   );
 }
