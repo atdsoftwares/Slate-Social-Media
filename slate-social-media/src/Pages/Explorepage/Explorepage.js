@@ -1,17 +1,22 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useComposePostContext } from "../../Components/Context/PostContext";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import PostModel from "../../Components/Post Model/PostModel";
-import { getComposedPostFn } from "../../Components/Services/Post/Postservices";
+
 import Sidebar from "../../Components/Sidebar/Sidebar";
+import { getComposedPostFn } from "../../redux/reducers/postsSlice";
 import "./Explorepage.css";
 function Explorepage() {
-  const { getComposePost, postDispatch } = useComposePostContext();
+  const dispatch = useDispatch();
+  const likespost = useSelector((state) => state.posts.likespost);
+  const getComposePost = useSelector((state) => state.posts.getComposePost);
+  // const { getComposePost, postDispatch } = useComposePostContext();
 
   useEffect(() => {
-    getComposedPostFn(postDispatch);
-  }, []);
+    dispatch(getComposedPostFn());
+  }, [likespost]);
 
   return (
     <div>

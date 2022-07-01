@@ -1,10 +1,14 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
+import { logoutHandler } from "../../redux/reducers/authSlice";
+// import { useLoginSignupContext } from "../Context/LoginSignupContext";
+
 import "./Header.css";
 function Header() {
   const token = localStorage.getItem("token");
-  const { logoutHandler } = useLoginSignupContext();
+  const dispatch = useDispatch();
+  // const { logoutHandler } = useLoginSignupContext();
   return (
     <div>
       <nav class="navigation-menu">
@@ -17,9 +21,6 @@ function Header() {
           type="search"
           class="navigation__input"
           placeholder="search item"
-          //   onChange={(e) =>
-          //     dispatch({ type: "SEARCHBAR", payload: e.target.value })
-          //   }
         />
         <div class="navigation__right">
           {!token ? (
@@ -28,7 +29,10 @@ function Header() {
             </Link>
           ) : (
             <Link to="/login">
-              <button className="btn btn-danger" onClick={logoutHandler}>
+              <button
+                className="btn btn-danger"
+                onClick={() => dispatch(logoutHandler())}
+              >
                 Logout
               </button>
             </Link>

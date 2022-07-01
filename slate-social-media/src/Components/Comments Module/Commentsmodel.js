@@ -1,30 +1,40 @@
 import React, { useEffect, useState } from "react";
-import { useCommentContext } from "../Context/CommentsContext";
-import { useUserContext } from "../Context/UserContext";
+import { useDispatch, useSelector } from "react-redux";
 import {
   downvoteCommentFn,
   postCommentFn,
   upvoteCommentFn,
-} from "../Services/Comments/Commentsservices";
-import { getPostsbyIdFn } from "../Services/Post/Postservices";
+} from "../../redux/reducers/commentsSlice";
+import { getPostsbyIdFn } from "../../redux/reducers/postsSlice";
 
 import "./Commentsmodel.css";
 function Commentsmodel({ commentsdata }) {
-  const { getUserDetails } = useUserContext();
-  const { commentsDispatch, commentBoxInput } = useCommentContext();
+  const composeComment = useSelector((state) => state.comments.composeComment);
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
+  const [commentBoxInput, setCommentBoxInput] = useState();
 
-  const { _id, avatar, fullName, content, image, video, username, comments } =
-    commentsdata;
+  const {
+    _id,
+    avatar,
+    fullName,
+    content,
+    image,
+    video,
+    username,
+    comments,
+    pdf,
+  } = commentsdata;
 
   const comment = commentBoxInput;
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    getPostsbyIdFn(commentsDispatch, _id);
-  }, [commentsdata]);
+    dispatch(getPostsbyIdFn(_id));
+  }, [composeComment]);
 
   function submitComment(e) {
     e.preventDefault();
-    postCommentFn(commentsDispatch, _id, comment);
+    dispatch(postCommentFn({ _id, comment }));
+    setCommentBoxInput("");
   }
 
   return (
@@ -54,6 +64,7 @@ function Commentsmodel({ commentsdata }) {
               <img class="reference-thumb" src={image} alt="uploaded-by-user" />
             )}
             {video && <video class="reference-video" src={video} controls />}
+            {pdf && <embed class="reference-pdf" src={pdf} />}
           </div>
         </div>
         <div class="social"></div>
@@ -67,14 +78,11 @@ function Commentsmodel({ commentsdata }) {
             <div className="form-container">
               <input
                 type="text"
+                value={commentBoxInput}
                 required
                 className="input-comment-text"
-                onChange={(e) =>
-                  commentsDispatch({
-                    type: "COMMENT_BOX_INPUT",
-                    payload: e.target.value,
-                  })
-                }
+                placeholder="Write a comment..."
+                onChange={(e) => setCommentBoxInput(e.target.value)}
               />
 
               <input type="submit" className="btn-submit" />
@@ -85,6 +93,7 @@ function Commentsmodel({ commentsdata }) {
         {comments?.map((c) => {
           const commentId = c._id;
           const postId = _id;
+
           return (
             <div className="comment-box-data1">
               <div className="username-and-avatar">
@@ -100,9 +109,7 @@ function Commentsmodel({ commentsdata }) {
 
               <span
                 class="material-icons commentsmi"
-                onClick={() =>
-                  upvoteCommentFn(commentsDispatch, postId, commentId)
-                }
+                onClick={() => dispatch(upvoteCommentFn({ postId, commentId }))}
               >
                 thumb_up_off_alt
               </span>
@@ -111,7 +118,7 @@ function Commentsmodel({ commentsdata }) {
               <span
                 class="material-icons commentsmi"
                 onClick={() =>
-                  downvoteCommentFn(commentsDispatch, postId, commentId)
+                  dispatch(downvoteCommentFn({ postId, commentId }))
                 }
               >
                 thumb_down_off_alt

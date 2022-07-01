@@ -1,12 +1,14 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import { useUserContext } from "../Context/UserContext";
 
 import "./Bookmarkedpost.css";
 function Bookmarkedpost({ postdata }) {
-  const { content, image, video, createdAt } = postdata;
+  const { content, image, video, createdAt, pdf } = postdata;
 
-  const { getUserDetails, getUsers } = useUserContext();
-
+  // const { getUserDetails, getUsers } = useUserContext();
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
+  const getUsers = useSelector((state) => state.users.getUsers);
   const { username } = getUserDetails;
   const userdata = getUsers.filter((u) => u.username === username);
   const { avatar, fullName } = userdata[0];
@@ -37,6 +39,9 @@ function Bookmarkedpost({ postdata }) {
               <img class="reference-thumb" src={image} alt="uploaded-by-user" />
             )}
             {video && <video class="reference-video" src={video} controls />}
+            {pdf && (
+              <embed class="reference-pdf" src={pdf} type="application/pdf" />
+            )}
           </div>
         </div>
         <div class="social">

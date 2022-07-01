@@ -1,15 +1,31 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link, Navigate, useNavigate } from "react-router-dom";
+import { loginHandler } from "../../redux/reducers/authSlice";
 import { useLoginSignupContext } from "../Context/LoginSignupContext";
 
 import "./Login.css";
 function Login() {
-  const { dispatch, loginHandler } = useLoginSignupContext();
+  const loginData = useSelector((state) => state.auth.loginData);
+
+  const [username, setUsername] = useState("");
+
+  const [password, setPassword] = useState("");
+
+  const userDetails = { username, password };
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  function submitLogin(e) {
+    e.preventDefault();
+    dispatch(loginHandler({ username, password }));
+    navigate("/explore");
+  }
   return (
     <div>
       <div className="Login-Form">
         <h3> Login Page</h3>
-        <form onSubmit={loginHandler}>
+        <form onSubmit={submitLogin}>
           <label>
             <input
               class="input__field"
@@ -17,9 +33,7 @@ function Login() {
               name="username"
               placeholder="user name"
               required
-              onChange={(e) =>
-                dispatch({ type: "USER_NAME", payload: e.target.value })
-              }
+              onChange={(e) => setUsername(e.target.value)}
             />
           </label>
 
@@ -31,9 +45,7 @@ function Login() {
               placeholder="Password"
               required
               minlength="6"
-              onChange={(e) =>
-                dispatch({ type: "PASSWORD", payload: e.target.value })
-              }
+              onChange={(e) => setPassword(e.target.value)}
             />
           </label>
 

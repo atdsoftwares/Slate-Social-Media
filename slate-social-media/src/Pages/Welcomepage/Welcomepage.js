@@ -1,5 +1,6 @@
 import React from "react";
 import Editpost from "../../Components/editpost/Editpost";
+import Emoji from "../../Components/emoji/Emoji";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import Hero from "../../Components/Hero/Hero";
