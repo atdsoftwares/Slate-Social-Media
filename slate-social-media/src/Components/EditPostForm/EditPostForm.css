@@ -5,7 +5,10 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
-
+embed.preview-pdf {
+  height: 30vh;
+  width: 45vh;
+}
 body {
   background-color: #e9ebee;
 }

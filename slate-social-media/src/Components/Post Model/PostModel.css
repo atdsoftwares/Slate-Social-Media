@@ -168,11 +168,11 @@ img.reference-thumb:hover {
   margin-top: 0.5rem;
 }
 .reference-content {
-  padding: 0;
+  /* padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
 }
 .modal-container {
   position: relative;

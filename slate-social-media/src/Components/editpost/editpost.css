@@ -1,0 +1,88 @@
+.wrapper {
+  background: #fff;
+  max-width: 475px;
+  margin: 1rem;
+  width: 100%;
+  border-radius: 15px;
+  padding: 25px 25px 15px 25px;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
+}
+.input-box {
+  padding-top: 10px;
+  border-bottom: 1px solid #e6e6e6;
+}
+.input-box .tweet-area {
+  position: relative;
+  min-height: 130px;
+  max-height: 170px;
+  overflow-y: auto;
+}
+.tweet-area::-webkit-scrollbar {
+  width: 0px;
+}
+
+/*  */
+/*  */
+
+/*  */
+/*  */
+.bottom {
+  display: flex;
+  margin-top: 13px;
+  align-items: center;
+  justify-content: center;
+}
+.bottom .icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.icons {
+  list-style: none;
+  /* color: #1da1f2; */
+  padding: 1.5rem;
+  height: 1rem;
+  width: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bottom .content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/*  */
+.bottom {
+  cursor: pointer;
+}
+.bottom button {
+  padding: 9px 18px;
+  border: none;
+  outline: none;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 700;
+  background: #1da1f2;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0.8;
+}
+.bottom button.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.bottom button:hover {
+  background: #0d8bd9;
+}
+textarea.input-box {
+  height: 8rem;
+  width: 100%;
+  margin-bottom: 1rem;
+  max-height: auto;
+  outline: none;
+  border: none;
+  resize: none;
+}
