@@ -1,76 +1,75 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Navigate, useNavigate } from "react-router-dom";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
+import { updatePostFn } from "../../redux/reducers/postsSlice";
+
 import { useComposePostContext } from "../Context/PostContext";
 import { useUserContext } from "../Context/UserContext";
+import Editpost from "../editpost/Editpost";
 import RTEeditor from "../RTEeditor/RTEeditor";
-import { getComposedPostFn } from "../Services/Post/Postservices";
-import { getUserDetailsFn } from "../Services/User/Userservices";
+// import { getComposedPostFn, updatePostFn } from "../Services/Post/Postservices";
+// import { getUserDetailsFn } from "../Services/User/Userservices";
 import "./EditPostForm.css";
 
 function EditPostForm() {
-  const { image, video, editorText, createdAt, postDispatch } =
-    useComposePostContext();
-
+  const [image, setImage] = useState();
+  const [video, setVideo] = useState();
+  const [pdf, setPdf] = useState();
+  const [editorText, setEditorText] = useState();
   const [_id, setId] = useState();
-  const { getUserDetails } = useUserContext();
-
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const { username, avatar, fullName } = getUserDetails;
+  const post = {
+    _id,
+    content: editorText,
+    image: image ? image : null,
+    video: video ? video : null,
+    pdf: pdf ? pdf : null,
+  };
 
-  async function updatePostFn(e) {
-    e.preventDefault();
-    const post = { _id, content: editorText, image: image, video: video };
-    const response = await axios({
-      method: "post",
-      url: `/api/posts/edit/${_id}`,
-      headers: { authorization: localStorage.getItem("token") },
-      data: { postData: { ...post } },
-    })
-      .then((response) => {
-        postDispatch({
-          type: "COMPOSE_POST",
-          payload: response.data.posts,
-        });
-      })
-      .catch((error) => {
-        console.log(`something went wrong`, error);
-      });
-  }
+  console.log(
+    "🚀 ~ file: EditPostForm.js ~ line 25 ~ EditPostForm ~ post",
+    post
+  );
+  const dispatch = useDispatch();
 
   useEffect(() => {
     setId(localStorage.getItem("id"));
-    postDispatch({
-      type: "EDITOR_TEXT",
-      payload: localStorage.getItem("content", editorText),
-    });
-    postDispatch({
-      type: "IMAGE",
-      payload: localStorage.getItem("image", image),
-    });
-    postDispatch({
-      type: "VIDEO",
-      payload: localStorage.getItem("video", video),
-    });
+    setImage(localStorage.getItem("image"));
+    setVideo(localStorage.getItem("video"));
+    setPdf(localStorage.getItem("pdf"));
+    setEditorText(localStorage.getItem("content"));
   }, []);
-
+  const [isEdit, setIsEdit] = useState(true);
+  const pdfPath = pdf ? pdf : null;
+  function handleVideo(e) {
+    console.log(`video handles`);
+    setVideo(URL.createObjectURL(e.target.files[0]));
+  }
+  function handlePdf(e) {
+    console.log(`pdf handles`);
+    setPdf(URL.createObjectURL(e.target.files[0]));
+  }
   function handleImage(e) {
-    postDispatch({
-      type: "IMAGE",
-      payload: URL.createObjectURL(e.target.files[0]),
-    });
+    console.log(`image handles`);
+    setImage(URL.createObjectURL(e.target.files[0]));
+  }
+  function removeImage() {
+    setImage(delete post.image);
+  }
+  function removePdf() {
+    setPdf(delete post.pdf);
   }
 
-  function handleVideo(e) {
-    postDispatch({
-      type: "VIDEO",
-      payload: URL.createObjectURL(e.target.files[0]),
-    });
+  function removeVideo() {
+    setVideo(delete post.video);
   }
   const navigate = useNavigate();
   function updateEditedPostFn(e) {
     e.preventDefault();
-    updatePostFn();
+    dispatch(updatePostFn({ _id, post }));
+    // setEditorText("");
     // navigate("/explore");
   }
 
@@ -83,46 +82,78 @@ function EditPostForm() {
             <span> {fullName}</span>
             <div>@{username}</div>
           </div>
-          <div class="time">
-            <span href="#">Posted at : {createdAt}</span>
-          </div>
         </div>
 
-        <form onClick={updatePostFn}>
-          <RTEeditor content={editorText} />
-
-          <div className="icons-button">
-            <label>
-              <input type="file" accept="video/*" onChange={handleVideo} />
-              <span className="material-icons rte-icons1">videocam </span>
-            </label>
-            <label>
-              <input type="file" accept="image/*" onChange={handleImage} />
-
-              <span className="material-icons rte-icons1">image </span>
-            </label>
-          </div>
+        <form onClick={updateEditedPostFn}>
+          <Editpost
+            editorText={editorText}
+            setEditorText={setEditorText}
+            isEdit={isEdit}
+            updateEditedPostFn={updateEditedPostFn}
+            handleImage={handleImage}
+            handleVideo={handleVideo}
+            handlePdf={handlePdf}
+          />
 
           <div class="reference">
             <div class="reference-content">
+              {pdf && (
+                <div>
+                  <span
+                    class="material-icons"
+                    onClick={removePdf}
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    X
+                  </span>
+
+                  <embed
+                    alt="not found"
+                    className="preview-pdf"
+                    src={pdfPath}
+                  />
+                </div>
+              )}
+              <hr />
               {image && (
-                <img
-                  class="reference-thumb"
-                  src={image}
-                  alt="uploaded-by-user"
-                  value={image}
-                />
+                <div>
+                  <span
+                    onClick={removeImage}
+                    class="material-icons"
+                    style={{
+                      cursor: "pointer",
+                    }}
+                  >
+                    X
+                  </span>
+                  <img alt="not found" className="preview-image" src={image} />
+                </div>
               )}
+              <hr />
+
               {video && (
-                <video
-                  class="reference-video"
-                  src={video}
-                  controls
-                  value={video}
-                />
+                <div>
+                  <span
+                    className="material-icons"
+                    onClick={removeVideo}
+                    style={{ cursor: "pointer" }}
+                  >
+                    {" "}
+                    X
+                  </span>
+                  <video
+                    className="video-preview"
+                    controls
+                    src={video}
+                    type="video/mp4"
+                  ></video>
+                </div>
               )}
+
+              <hr />
             </div>
-            <input type="submit" value="Update" />{" "}
           </div>
         </form>
       </div>

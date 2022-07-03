@@ -1,10 +1,12 @@
 import React from "react";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
+import { signUpHandler } from "../../redux/reducers/authSlice";
 import { useLoginSignupContext } from "../Context/LoginSignupContext";
 
 import "./Signup.css";
 function Signup() {
-  const { dispatch, signUpHandler } = useLoginSignupContext();
+  const dispatch = useDispatch();
   return (
     <div>
       <div className="Signup-Form">

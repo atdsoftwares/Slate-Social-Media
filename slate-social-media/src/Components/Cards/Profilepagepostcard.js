@@ -4,7 +4,7 @@ import { useComposePostContext } from "../Context/PostContext";
 import { useUserContext } from "../Context/UserContext";
 import "./Profilepagepostcard.css";
 function Profielpagepostcard({ newpostdata }) {
-  const { avatar, username, content, fullName, createdAt, image, video } =
+  const { avatar, username, content, fullName, createdAt, image, video, pdf } =
     newpostdata;
   return (
     <div className="post-container">
@@ -33,6 +33,7 @@ function Profielpagepostcard({ newpostdata }) {
               <img class="reference-thumb" src={image} alt="uploaded-by-user" />
             )}
             {video && <video class="reference-video" src={video} controls />}
+            {pdf && <embed class="reference-pdf" src={pdf} controls />}
           </div>
         </div>
         <div class="social"></div>

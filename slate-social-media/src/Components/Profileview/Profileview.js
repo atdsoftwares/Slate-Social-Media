@@ -1,19 +1,26 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  followUserFn,
+  getUserDetailsFn,
+} from "../../redux/reducers/usersSlice";
 import { useLoginSignupContext } from "../Context/LoginSignupContext";
 import { useUserContext } from "../Context/UserContext";
-import { followUserFn } from "../Services/Follow-Unfollow/Follow-Unfollow-services";
-import { getUserDetailsFn } from "../Services/User/Userservices";
+// import { followUserFn } from "../Services/Follow-Unfollow/Follow-Unfollow-services";
+// import { getUserDetailsFn } from "../Services/User/Userservices";
 import "./Profileview.css";
 function Profileview() {
-  const { getUserDetails, userDispatch } = useUserContext();
+  // const { getUserDetails, userDispatch } = useUserContext();
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
 
-  const { loginData } = useLoginSignupContext();
+  // const { loginData } = useLoginSignupContext();
+  const loginData = useSelector((state) => state.auth.loginData);
   const _id = loginData._id;
 
   const userId = _id;
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    getUserDetailsFn(userDispatch, _id);
+    dispatch(getUserDetailsFn(_id));
   }, []);
 
   const { avatar, bgImg, fullName, followers, following, username } =
@@ -28,13 +35,13 @@ function Profileview() {
           <h3 className="profile-user-name"> {fullName}</h3>
           <sub> @{username}</sub>
 
-          <button
+          {/* <button
             className="btn btn-warning-outline bnt-follow"
-            onClick={() => followUserFn(userDispatch, userId)}
+            onClick={() => followUserFn(userId)}
           >
             Follow
             <span class="material-icons profilemi">person_add</span>
-          </button>
+          </button> */}
         </div>
         <div className="profile-counter">
           <div className="profiler-followers">

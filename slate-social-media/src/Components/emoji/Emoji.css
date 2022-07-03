@@ -1,0 +1,8 @@
+.picker-container {
+  position: absolute;
+  width: 40%;
+}
+
+.input-style1 {
+  cursor: pointer;
+}

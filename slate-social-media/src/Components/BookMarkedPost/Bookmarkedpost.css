@@ -102,8 +102,6 @@ img.reference-thumb:hover {
 }
 
 .reference-content {
-  border: 2px solid black;
-  border: 2px solid rgba(0, 0, 0, 0.1);
   border-top: 0;
   padding: 10px 12px 10px 12px;
 }

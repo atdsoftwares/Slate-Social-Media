@@ -1,10 +1,6 @@
 import React from "react";
 import "./Viewuserprofilecard.css";
 function Viewuserprofilecard({ newpostdata }) {
-  console.log(
-    "🚀 ~ file: Viewuserprofilecard.js ~ line 4 ~ Viewuserprofilecard ~ newpostdata",
-    newpostdata
-  );
   const { _id, avatar, fullName, username, image, video, content, createdAt } =
     newpostdata;
   return (

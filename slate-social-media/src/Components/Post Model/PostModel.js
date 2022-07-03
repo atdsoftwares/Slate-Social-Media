@@ -1,7 +1,6 @@
 import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { useComposePostContext } from "../Context/PostContext";
-import { useUserContext } from "../Context/UserContext";
 import {
   addPostToBookmarkFn,
   deletePostFn,
@@ -9,7 +8,17 @@ import {
   editPostFn,
   likesPostFn,
   removeBookmarkedPostsFn,
-} from "../Services/Post/Postservices";
+} from "../../redux/reducers/postsSlice";
+// import { useComposePostContext } from "../Context/PostContext";
+// import { useUserContext } from "../Context/UserContext";
+// import {
+//   addPostToBookmarkFn,
+//   deletePostFn,
+//   dislikesPostFn,
+//   editPostFn,
+//   likesPostFn,
+//   removeBookmarkedPostsFn,
+// } from "../Services/Post/Postservices";
 import "./PostModel.css";
 function PostModel({ postdata }) {
   const {
@@ -22,17 +31,22 @@ function PostModel({ postdata }) {
     image,
     video,
     likes,
+    pdf,
+    comments,
     likes: { likeCount, likedBy, dislikedBy },
     // updatedAt,
   } = postdata;
 
-  const { getUserDetails } = useUserContext();
+  // const { getUserDetails } = useUserContext();
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const isLiked = likes.likedBy.find(
     (likedUser) => likedUser?.username === getUserDetails.username
   );
+  const dispatch = useDispatch();
+  const addToBookmarks = useSelector((state) => state.posts.addToBookmarks);
 
-  const { postDispatch, addToBookmarks, getComposePost } =
-    useComposePostContext();
+  // const { postDispatch, addToBookmarks, getComposePost } =
+  //   useComposePostContext();
 
   const [display, setDisplay] = useState("none");
 
@@ -51,14 +65,16 @@ function PostModel({ postdata }) {
               <Link to={`/edit/${_id}`}>
                 <span
                   class="material-icons postcardmi"
-                  onClick={() => editPostFn(_id, image, video, content)}
+                  onClick={() =>
+                    dispatch(editPostFn(_id, image, video, content, pdf))
+                  }
                 >
                   edit
                 </span>
               </Link>
               <span
                 class="material-icons postcardmi"
-                onClick={() => deletePostFn(postDispatch, _id)}
+                onClick={() => dispatch(deletePostFn(_id))}
               >
                 delete
               </span>
@@ -82,45 +98,74 @@ function PostModel({ postdata }) {
 
         <div class="reference">
           <div class="reference-content">
-            {image && (
+            {image ? (
               <img class="reference-thumb" src={image} alt="uploaded-by-user" />
+            ) : (
+              <div>{null} </div>
             )}
-            {video && <video class="reference-video" src={video} controls />}
+            {video ? (
+              <video class="reference-video" src={video} controls />
+            ) : (
+              <div>{null} </div>
+            )}
+
+            {pdf ? (
+              <embed class="reference-video" src={pdf} />
+            ) : (
+              <div> {null}</div>
+            )}
           </div>
         </div>
         <div class="social">
           <div class="social-buttons">
+            <div style={{ color: "red", marginRight: "-5rem" }}>
+              {likeCount}
+            </div>
             {getUserDetails?.username === isLiked?.username &&
             getUserDetails?._id ? (
               <span
                 class="material-icons postcardmi"
-                onClick={() => dislikesPostFn(postDispatch, _id)}
+                onClick={() => dispatch(dislikesPostFn(_id))}
               >
                 favorite
               </span>
             ) : (
               <span
                 class="material-icons postcardmi"
-                onClick={() => likesPostFn(postDispatch, _id)}
+                onClick={() => dispatch(likesPostFn(_id))}
               >
                 favorite_border
               </span>
             )}
-            {likeCount}
+
             <Link to={`/comments/${_id}`}>
-              <span class="material-icons postcardmi">chat_bubble_outline</span>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  padding: "0px",
+                  fontSize: "1.1rem",
+                  color: "red",
+                }}
+              >
+                {comments && comments.length}
+                <span class="material-icons postcardmi">
+                  chat_bubble_outline
+                </span>
+              </div>
             </Link>
             {addToBookmarks.some((prod) => prod._id === postdata._id) ? (
               <span
                 class="material-icons postcardmi"
-                onClick={() => removeBookmarkedPostsFn(postDispatch, _id)}
+                onClick={() => dispatch(removeBookmarkedPostsFn(_id))}
               >
                 bookmark
               </span>
             ) : (
               <span
                 class="material-icons postcardmi"
-                onClick={() => addPostToBookmarkFn(postDispatch, _id)}
+                onClick={() => dispatch(addPostToBookmarkFn(_id))}
               >
                 bookmark_border
               </span>

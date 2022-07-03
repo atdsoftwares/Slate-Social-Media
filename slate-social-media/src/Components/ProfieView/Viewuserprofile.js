@@ -1,16 +1,19 @@
 import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { getUserDetailsByIdFn } from "../../redux/reducers/usersSlice";
 import { useUserContext } from "../Context/UserContext";
-import { getUserDetailsByIdFn } from "../Services/User/Userservices";
+// import { getUserDetailsByIdFn } from "../Services/User/Userservices";
 import "./Viewuserprofile.css";
 function Viewuserprofile() {
-  const { getUsersbyId, userDispatch } = useUserContext();
+  // const { getUsersbyId, userDispatch } = useUserContext();
+  const getUsersbyId = useSelector((state) => state.users.getUsersbyId);
 
   const paramsId = useParams();
-
+  const dispatch = useDispatch();
   useEffect(() => {
-    getUserDetailsByIdFn(userDispatch, paramsId);
-  }, [userDispatch, paramsId]);
+    dispatch(getUserDetailsByIdFn(paramsId));
+  }, [paramsId]);
 
   const { avatar, bgImg, fullName, followers, following, username } =
     getUsersbyId;

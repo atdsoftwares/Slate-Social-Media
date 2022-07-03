@@ -1,21 +1,24 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
-import { useUserContext } from "../Context/UserContext";
 import {
   followUserFn,
+  getUsersFn,
   unFollowUserFn,
-} from "../Services/Follow-Unfollow/Follow-Unfollow-services";
-import { getUsersFn } from "../Services/User/Userservices";
+} from "../../redux/reducers/usersSlice";
+import { useDispatch, useSelector } from "react-redux";
+
 import "./AccountSidebar.css";
 function AccountSidebar() {
-  const { getUsers, userDispatch, getUserDetails } = useUserContext();
+  const getUserDetails = useSelector((state) => state.users.getUserDetails);
+  const getUsers = useSelector((state) => state.users.getUsers);
+
+  const dispatch = useDispatch();
   const { following } = getUserDetails;
 
   // getuserdetail from usercontext id , send the saeme id
   useEffect(() => {
-    getUsersFn(userDispatch);
-  }, [userDispatch]);
+    dispatch(getUsersFn());
+  }, []);
 
   return (
     <div className="accounts-follow">
@@ -35,14 +38,14 @@ function AccountSidebar() {
           {following && following?.some((u) => u._id === user._id) ? (
             <span
               class="material-icons followicon"
-              onClick={() => unFollowUserFn(userDispatch, user._id)}
+              onClick={() => dispatch(unFollowUserFn(user._id))}
             >
               person_remove
             </span>
           ) : (
             <span
               class="material-icons followicon"
-              onClick={() => followUserFn(userDispatch, user._id)}
+              onClick={() => dispatch(followUserFn(user._id))}
             >
               person_add
             </span>
