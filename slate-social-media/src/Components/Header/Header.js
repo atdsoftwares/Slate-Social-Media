@@ -41,7 +41,11 @@ function Header() {
             )}{" "}
           </div>
           <div className="user-avatar">
-            <img src={loginData.avatar} alt="user avatar" />
+            {token ? (
+              <img src={loginData.avatar} alt="user avatar" />
+            ) : (
+              <span class="material-icons">account_circle</span>
+            )}
           </div>
         </div>
       </nav>

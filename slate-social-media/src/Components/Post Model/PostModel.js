@@ -36,6 +36,9 @@ function PostModel({ postdata }) {
     likes: { likeCount, likedBy, dislikedBy },
     // updatedAt,
   } = postdata;
+  console.log("🚀 ~ file: PostModel.js ~ line 39 ~ PostModel ~ image", image);
+  console.log("🚀 ~ file: PostModel.js ~ line 39 ~ PostModel ~ video", video);
+  console.log("🚀 ~ file: PostModel.js ~ line 39 ~ PostModel ~ image", pdf);
 
   // const { getUserDetails } = useUserContext();
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
@@ -44,9 +47,6 @@ function PostModel({ postdata }) {
   );
   const dispatch = useDispatch();
   const addToBookmarks = useSelector((state) => state.posts.addToBookmarks);
-
-  // const { postDispatch, addToBookmarks, getComposePost } =
-  //   useComposePostContext();
 
   const [display, setDisplay] = useState("none");
 

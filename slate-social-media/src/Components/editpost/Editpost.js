@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./editpost.css";
 import Emoji from "../emoji/Emoji";
 import { updatePostFn } from "../../redux/reducers/postsSlice";
+import { Navigate, useNavigate } from "react-router-dom";
 function Editpost({
   setEditorText,
   handleImage,
@@ -13,6 +14,13 @@ function Editpost({
   updateEditedPostFn,
   pdf,
 }) {
+  const navigate = useNavigate();
+
+  function postEditedFn() {
+    updateEditedPostFn();
+    setEditorText("");
+    navigate("/explore");
+  }
   return (
     <div className="compose-post-editor">
       <form class="bg-white shadow rounded-lg mb-6 p-4 compose-post-editor">
@@ -56,15 +64,15 @@ function Editpost({
           </div>
           {isEdit ? (
             <button
-              class="flex items-center py-2 px-4 rounded-lg text-sm bg-gray-300 text-white shadow-lg"
-              onClick={updateEditedPostFn}
+              class="flex items-center py-2 px-4 rounded-lg text-sm bg-yellow-300 text-white-300 shadow-lg"
+              onClick={postEditedFn}
             >
               Update
             </button>
           ) : (
             <button
               onClick={submitForm}
-              class="flex items-center py-2 px-4 rounded-lg text-sm bg-green-600 text-white shadow-lg"
+              class="flex items-center py-2 px-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg"
             >
               Post
             </button>

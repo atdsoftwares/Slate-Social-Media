@@ -32,7 +32,8 @@
   margin-bottom: 10px;
   border-radius: 10px;
   width: 25%;
-  height: 12rem;
+  max-width: auto;
+  height: auto;
   box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
     rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
 }
@@ -71,4 +72,26 @@ hr.laxman-rekha {
   height: 40px;
   border-radius: 50%;
   margin-right: 10px;
+}
+.content-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+.content-data {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  height: auto;
+  margin: 1rem;
+}
+.reference-image-content,
+.reference-video-content,
+.reference-pdf-content {
+  margin: 1rem;
 }

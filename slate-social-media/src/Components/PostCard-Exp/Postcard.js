@@ -27,6 +27,9 @@ function Postcard({ postdata }) {
     // updatedAt,
     job_description,
   } = postdata;
+  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ pdf", pdf);
+  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ video", video);
+  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ image", image);
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const isLiked = likes.likedBy.find(
     (likedUser) => likedUser?.username === getUserDetails.username
@@ -50,6 +53,30 @@ function Postcard({ postdata }) {
         <div class="post__body">
           <p>{content}</p>
         </div>
+        <div class="content-container">
+          <div class="content-data">
+            {image ? (
+              <img
+                class="reference-image-content"
+                src={image}
+                alt="uploaded-by-user"
+              />
+            ) : (
+              <div>{null} </div>
+            )}
+            {video ? (
+              <video class="reference-video-content" src={video} controls />
+            ) : (
+              <div>{null} </div>
+            )}
+
+            {pdf ? (
+              <embed class="reference-pdf-content" src={pdf} />
+            ) : (
+              <div> {null}</div>
+            )}
+          </div>
+        </div>
         <hr className="laxman-rekha" />
         <div class="feed__inputOptions">
           <div class="inputOption">
@@ -70,7 +97,6 @@ function Postcard({ postdata }) {
                 favorite_border
               </span>
             )}
-            {/* <h4>Like</h4> */}
           </div>
           <div class="inputOption">
             {comments.length}
@@ -79,7 +105,6 @@ function Postcard({ postdata }) {
                 comment{" "}
               </div>
             </Link>
-            {/* <h4>Comment</h4> */}
           </div>
           <div class="inputOption">
             {addToBookmarks.some((prod) => prod._id === postdata._id) ? (
@@ -97,7 +122,6 @@ function Postcard({ postdata }) {
                 bookmark_border
               </span>
             )}
-            {/* <h4>Bookmark</h4> */}
           </div>
           <div class="inputOption">
             <Link to={`/edit/${_id}`}>
@@ -110,7 +134,6 @@ function Postcard({ postdata }) {
                 edit
               </span>
             </Link>
-            {/* <h4>Edit</h4> */}
           </div>
           <div class="inputOption">
             <div
@@ -120,7 +143,6 @@ function Postcard({ postdata }) {
             >
               delete
             </div>
-            {/* <h4>Delete</h4> */}
           </div>
         </div>
       </div>
