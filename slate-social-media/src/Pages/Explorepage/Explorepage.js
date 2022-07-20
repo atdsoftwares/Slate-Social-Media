@@ -4,6 +4,7 @@ import { useComposePostContext } from "../../Components/Context/PostContext";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
 import PostModel from "../../Components/Post Model/PostModel";
+import Postcard from "../../Components/PostCard-Exp/Postcard";
 
 import Sidebar from "../../Components/Sidebar/Sidebar";
 import { getComposedPostFn } from "../../redux/reducers/postsSlice";
@@ -22,9 +23,11 @@ function Explorepage() {
     <div>
       <Header />
       <Sidebar />
-      {getComposePost.map((postdata) => {
-        return <PostModel postdata={postdata} key={postdata._id} />;
-      })}
+      <div className="explore-page-post-card">
+        {getComposePost.map((postdata) => {
+          return <Postcard postdata={postdata} key={postdata._id} />;
+        })}
+      </div>
 
       <Footer />
     </div>

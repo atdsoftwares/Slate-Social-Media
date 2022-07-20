@@ -17,7 +17,6 @@ function Emoji({ setEditorText }) {
           className="material-icons input-style1"
           onClick={() => setShowPicker((val) => !val)}
         >
-          {" "}
           add_reaction
         </span>
 

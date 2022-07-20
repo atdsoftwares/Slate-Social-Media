@@ -5,6 +5,7 @@ import Editpost from "../../Components/editpost/Editpost";
 import Emoji from "../../Components/emoji/Emoji";
 import Footer from "../../Components/Footer/Footer";
 import Header from "../../Components/Header/Header";
+import Postcard from "../../Components/PostCard-Exp/Postcard";
 import Sidebar from "../../Components/Sidebar/Sidebar";
 
 function Homepage() {
@@ -13,7 +14,6 @@ function Homepage() {
       <Header />
       <Sidebar />
       <Posteditor />
-
       <AccountSidebar />
       <Footer />
     </div>

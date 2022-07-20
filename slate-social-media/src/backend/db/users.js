@@ -11,6 +11,7 @@ export const users = [
     fullName: "Tanay Pratap",
     username: "tanaypratap",
     password: "tanaypratap123",
+    job_description: "CTO Invact",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/tanay.jpg",
     bgImg:
@@ -23,6 +24,7 @@ export const users = [
     fullName: "Naman Saxena ",
     username: "namansaxena",
     password: "namansaxena123",
+    job_description: "Sr Software Engineer",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/naman.jpeg",
     bgImg:
@@ -35,6 +37,7 @@ export const users = [
     fullName: "Adarsh Patel",
     username: "adarshpatel",
     password: "adarshpatel123",
+    job_description: "Software Engineer",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/adarshpateldev.jpeg",
     bgImg:
@@ -47,6 +50,7 @@ export const users = [
     fullName: "Prankur Pandey",
     username: "iprankurpandey",
     password: "prankurpandey123",
+    job_description: "Frontend Engineer",
     avatar:
       "https://raw.githubusercontent.com/iprankurpandey/github-imagehosting/main/prankur.png",
     bgImg:

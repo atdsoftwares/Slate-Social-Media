@@ -1,0 +1,74 @@
+/* Post */
+.inputOption {
+  display: flex;
+  align-items: center;
+  margin-top: 0.5rem;
+  color: gray;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.inputOption:hover {
+  background-color: whitesmoke;
+  border-radius: 10px;
+}
+
+.inputOption > h4 {
+  margin-left: 5px;
+}
+.feed__inputOptions {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 3rem;
+}
+
+.sidebar__topAvatar {
+  font-size: 40px;
+}
+.post {
+  background-color: white;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  width: 25%;
+  height: 12rem;
+  box-shadow: rgba(255, 255, 255, 0.2) 0px 0px 0px 1px inset,
+    rgba(0, 0, 0, 0.9) 0px 0px 0px 1px;
+}
+
+.post__header {
+  display: flex;
+  margin-bottom: 10px;
+}
+
+.post__info {
+  margin-left: 10px;
+}
+
+.post__info > p {
+  font-size: 12px;
+  color: gray;
+}
+
+.post__info > h2 {
+  font-size: 15px;
+}
+.postcard-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+hr.laxman-rekha {
+  height: 1px;
+  width: 100%;
+  margin-top: 5px;
+}
+.post-card-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}

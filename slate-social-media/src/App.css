@@ -1,11 +1,4 @@
-@import "https://deploy-preview-13--agri-component.netlify.app/css/components.css";
-
-:root {
-  --sky-blue-color: rgb(129, 129, 255);
-  --white-color: rgb(255, 255, 255);
-  --black-color: rgb(0, 0, 0);
-  --red-shade-color: rgb(255, 100, 100);
-}
+@import "https://slateui.netlify.app/css/components.css";
 
 * {
   scroll-behavior: smooth;

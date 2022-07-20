@@ -1,8 +1,9 @@
 .picker-container {
   position: absolute;
-  width: 40%;
+  width: 60%;
 }
 
 .input-style1 {
   cursor: pointer;
+  font-size: 1.1rem;
 }

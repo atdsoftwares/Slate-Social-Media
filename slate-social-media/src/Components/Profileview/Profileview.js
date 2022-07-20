@@ -25,34 +25,51 @@ function Profileview() {
 
   const { avatar, bgImg, fullName, followers, following, username } =
     getUserDetails;
-
+  const customeStyle = {
+    height: "25%",
+    width: "25%",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+    boxShadowm: "0px 0px 10px rgba(0,0,0,0.5)",
+  };
+  const customeStyleimg = {
+    height: "50%",
+    width: "80%",
+    backgroundSize: "initial",
+    backgroundPosition: "center",
+    backgroundRepeat: "no-repeat",
+  };
   return (
-    <div className="composed-post">
-      <div div className="post-model1">
-        <img src={bgImg} alt="bgposter" className="bg-poster-img" />
-        <img src={avatar} alt="avatar" className="avatar-profile-img" />
-        <div className="btn-text-profile">
-          <h3 className="profile-user-name"> {fullName}</h3>
-          <sub> @{username}</sub>
-
-          {/* <button
-            className="btn btn-warning-outline bnt-follow"
-            onClick={() => followUserFn(userId)}
-          >
-            Follow
-            <span class="material-icons profilemi">person_add</span>
-          </button> */}
-        </div>
-        <div className="profile-counter">
-          <div className="profiler-followers">
-            Follower: {followers && followers.length}
+    <div className="composed-post" style={customeStyle}>
+      <img src={bgImg} alt="bgimage" style={customeStyleimg} />
+      <aside class="">
+        <div class="bg-white shadow rounded-lg p-10">
+          <div class="flex flex-col gap-1 text-center items-center">
+            <img
+              class="h-32 w-32 bg-white p-2 rounded-full shadow mb-4"
+              src={avatar}
+              alt=""
+            />
+            <p class="font-semibold">{fullName}</p>
+            <div> Full Stack Developer</div>
           </div>
-          <div className="profiler-following">
-            Following: {following && following.length}
+          <div class="flex justify-center items-center gap-2 my-3">
+            <div class="font-semibold text-center mx-4">
+              <p class="text-black">102</p>
+              <span class="text-gray-400">Posts</span>
+            </div>
+            <div class="font-semibold text-center mx-4">
+              <p class="text-black">{followers && followers.length}</p>
+              <span class="text-gray-400">Followers</span>
+            </div>
+            <div class="font-semibold text-center mx-4">
+              <p class="text-black">{following && following.length}</p>
+              <span class="text-gray-400">Folowing</span>
+            </div>
           </div>
-          <div className="profiler-post"> posts : 10</div>
         </div>
-      </div>
+      </aside>
     </div>
   );
 }

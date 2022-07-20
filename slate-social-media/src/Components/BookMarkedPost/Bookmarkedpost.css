@@ -1,18 +1,5 @@
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-body {
-  background-color: #e9ebee;
-}
-
 .f-card {
   background-color: white;
-  /*height:400px;*/
   width: 502px;
   border: 1px solid #d0d1d5;
   border-radius: 3px;

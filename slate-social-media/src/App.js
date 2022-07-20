@@ -5,12 +5,11 @@ import Commentspage from "./Pages/Commentspage/Commentspage";
 import Explorepage from "./Pages/Explorepage/Explorepage";
 import Homepage from "./Pages/Homepage/Homepage";
 import Loginpage from "./Pages/Loginpage/Loginpage";
-import Mockman from "mockman-js";
 import Profielpage from "./Pages/Profilepage/Profielpage";
 import Signuppage from "./Pages/Signuppage/Signuppage";
 import Welcomepage from "./Pages/Welcomepage/Welcomepage";
 import Editpostpage from "./Pages/Editpostpage/Editpostpage";
-
+import Auth from "./Components/Auth/Auth";
 import ViewUserProfilesPage from "./Pages/ViewUserProfiles/ViewUserProfilesPage";
 
 function App() {
@@ -18,16 +17,66 @@ function App() {
     <div>
       <Routes>
         <Route path="/" element={<Welcomepage />} />
-        <Route path="/explore" element={<Explorepage />} />
-        <Route path="/Edit/:_id" element={<Editpostpage />} />
-        <Route path="/profile" element={<Profielpage />} />
-        <Route path="/ViewProfile/:id" element={<ViewUserProfilesPage />} />
-        <Route path="/bookmark" element={<Bookmarkpage />} />
-        <Route exact path="/home" element={<Homepage />} />
-        <Route exact path="/comments/:_id" element={<Commentspage />} />
+        <Route
+          path="/explore"
+          element={
+            <Auth>
+              <Explorepage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/Edit/:_id"
+          element={
+            <Auth>
+              <Editpostpage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <Auth>
+              <Profielpage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/ViewProfile/:id"
+          element={
+            <Auth>
+              <ViewUserProfilesPage />
+            </Auth>
+          }
+        />
+        <Route
+          path="/bookmark"
+          element={
+            <Auth>
+              <Bookmarkpage />
+            </Auth>
+          }
+        />
+        <Route
+          exact
+          path="/home"
+          element={
+            <Auth>
+              <Homepage />
+            </Auth>
+          }
+        />
+        <Route
+          exact
+          path="/comments/:_id"
+          element={
+            <Auth>
+              <Commentspage />
+            </Auth>
+          }
+        />
         <Route exact path="/login" element={<Loginpage />} />
         <Route exact path="/signup" element={<Signuppage />} />
-        <Route exact path="/mockbee" element={<Mockman />} />
       </Routes>
     </div>
   );
