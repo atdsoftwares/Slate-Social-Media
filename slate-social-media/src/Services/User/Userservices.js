@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "../../Utils/SystemUtils";
 
 async function getUsersFn(userDispatch) {
   try {
@@ -11,6 +12,7 @@ async function getUsersFn(userDispatch) {
         payload: response.data.users,
       })
     );
+    toast.success("Users fetched successfully");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -27,6 +29,7 @@ async function getUserDetailsFn(userDispatch, _id) {
         payload: response.data.user,
       })
     );
+    toast.success("User details fetched successfully");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -43,6 +46,7 @@ export async function getUserDetailsByIdFn(userDispatch, paramsId) {
         payload: response.data.user,
       })
     );
+    toast.success("User details fetched successfully");
   } catch (error) {
     console.log(`something went wrong`, error);
   }

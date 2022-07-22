@@ -1,10 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { v4 as uuid } from "uuid";
-
+import {
+  React,
+  useEffect,
+  useState,
+  uuid,
+  useDispatch,
+  useSelector,
+} from "../../Utils/SystemUtils";
 import "./Posteditor.css";
-
 import { composeNewPostFn } from "../../redux/reducers/postsSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
 import Editpost from "../editpost/Editpost";
 function Posteditor() {
@@ -17,7 +20,6 @@ function Posteditor() {
 
   const dispatch = useDispatch();
 
-  // const { loginData } = useLoginSignupContext();
   const _id = loginData._id;
 
   useEffect(() => {

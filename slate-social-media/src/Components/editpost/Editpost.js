@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import "./editpost.css";
 import Emoji from "../emoji/Emoji";
-import { updatePostFn } from "../../redux/reducers/postsSlice";
-import { Navigate, useNavigate } from "react-router-dom";
+import { React, useNavigate } from "../../Utils/SystemUtils";
 function Editpost({
   setEditorText,
   handleImage,
@@ -22,30 +20,41 @@ function Editpost({
     navigate("/explore");
   }
   return (
-    <div className="compose-post-editor">
-      <form class="bg-white shadow rounded-lg mb-6 p-4 compose-post-editor">
-        <textarea
-          name="message"
-          placeholder="Type something..."
-          value={editorText}
-          onChange={(e) => setEditorText(e.target.value)}
-          class="w-full rounded-lg p-2 text-sm bg-gray-100 border border-transparent appearance-none rounded-tg placeholder-gray-400"
-        ></textarea>
-        <footer class="flex justify-between m-2">
-          <div class="flex gap-2">
-            <span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-9 h-9 pt-1 pr-1 pb-6 pl-2 rounded-full text-blue-400 cursor-pointer">
+    <div className="compose-post-editor1">
+      <div class="feed1">
+        <div class="feed__inputContainer1">
+          <form>
+            <div className="mesg-editor-send1">
+              <textarea
+                name="message"
+                placeholder="Type something..."
+                value={editorText}
+                onChange={(e) => setEditorText(e.target.value)}
+                class="feed__input1"
+              ></textarea>
+              <div className="send-edit-post-btn1">
+                {isEdit ? (
+                  <span class="material-icons" onClick={postEditedFn}>
+                    update
+                  </span>
+                ) : (
+                  <span onClick={submitForm} class="material-icons">
+                    send
+                  </span>
+                )}
+              </div>
+            </div>
+
+            <div class="inputOption1">
               <label>
                 <input type="file" accept="image/*" onChange={handleImage} />
-                <span className="material-icons editor-icon">image</span>
+                <span className="material-icons">image</span>
               </label>
-            </span>
-            <span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-9 h-9 pt-1 pr-1 pb-6 pl-2 rounded-full text-blue-400 cursor-pointer">
+
               <label>
                 <input type="file" accept="video/*" onChange={handleVideo} />
-                <span className="material-icons editor-icon">videocam </span>
+                <span className="material-icons">videocam </span>
               </label>
-            </span>
-            <span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-9 h-9 pt-1 pr-1 pb-6 pl-2 rounded-full text-blue-400 cursor-pointer">
               <label>
                 <input
                   name="userfile"
@@ -53,32 +62,15 @@ function Editpost({
                   accept="application/pdf"
                   onChange={handlePdf}
                 />
-                <span className="material-icons editor-icon">
-                  picture_as_pdf
-                </span>
+                <span className="material-icons">picture_as_pdf</span>
               </label>
-            </span>
-            <span class="flex items-center transition ease-out duration-300 hover:bg-blue-500 hover:text-white bg-blue-100 w-9 h-9 pt-1 pr-1 pb-6 pl-2 rounded-full text-blue-400 cursor-pointer">
-              <Emoji setEditorText={setEditorText} />
-            </span>
-          </div>
-          {isEdit ? (
-            <button
-              class="flex items-center py-2 px-4 rounded-lg text-sm bg-yellow-300 text-white-300 shadow-lg"
-              onClick={postEditedFn}
-            >
-              Update
-            </button>
-          ) : (
-            <button
-              onClick={submitForm}
-              class="flex items-center py-2 px-4 rounded-lg text-sm bg-blue-600 text-white shadow-lg"
-            >
-              Post
-            </button>
-          )}
-        </footer>
-      </form>
+              <label>
+                <Emoji setEditorText={setEditorText} />
+              </label>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
   );
 }

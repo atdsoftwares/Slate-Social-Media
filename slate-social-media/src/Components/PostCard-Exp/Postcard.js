@@ -1,6 +1,4 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
+import { useDispatch, useSelector, Link } from "../../Utils/SystemUtils";
 import {
   addPostToBookmarkFn,
   deletePostFn,
@@ -24,12 +22,8 @@ function Postcard({ postdata }) {
     pdf,
     comments,
     likes: { likeCount, likedBy, dislikedBy },
-    // updatedAt,
-    job_description,
   } = postdata;
-  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ pdf", pdf);
-  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ video", video);
-  console.log("🚀 ~ file: Postcard.js ~ line 30 ~ Postcard ~ image", image);
+
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const isLiked = likes.likedBy.find(
     (likedUser) => likedUser?.username === getUserDetails.username
@@ -46,6 +40,7 @@ function Postcard({ postdata }) {
           </div>
           <div class="post__info">
             <h2>{fullName}</h2>
+            <span>{username} </span>
             <p>{createdAt}</p>
           </div>
         </div>

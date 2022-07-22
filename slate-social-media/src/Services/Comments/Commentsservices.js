@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "../../Utils/SystemUtils";
 
 export async function postCommentFn(commentsDispatch, _id, comment) {
   try {
@@ -13,7 +14,7 @@ export async function postCommentFn(commentsDispatch, _id, comment) {
         payload: response.data.comments,
       })
     );
-    console.log(response);
+    toast.success("Comment successfully created");
     commentsDispatch({ type: "COMMENT_BOX_INPUT", payload: "" });
   } catch (error) {
     console.log(`something went wrong`, error);
@@ -32,7 +33,7 @@ export async function upvoteCommentFn(commentsDispatch, postId, commentId) {
         payload: response.data.comments,
       })
     );
-    console.log(response);
+    toast.success("Comment successfully upvoted");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -50,7 +51,7 @@ export async function downvoteCommentFn(commentsDispatch, postId, commentId) {
         payload: response.data.comments,
       })
     );
-    console.log(response);
+    toast.success("Comment successfully downvoted");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -67,7 +68,7 @@ export async function getCommentsbyPostId(commentsDispatch, _id) {
         payload: response.data.comments,
       })
     );
-    console.log(response);
+    toast.success("Comments successfully fetched");
   } catch (error) {
     console.log(`something went wrong`, error);
   }

@@ -1,24 +1,16 @@
-*,
-*:before,
-*:after {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
 embed.preview-pdf {
   height: 30vh;
   width: 45vh;
 }
 
 .f-card {
-  background-color: white;
-  /*height:400px;*/
+  background-color: rgb(150, 144, 144);
+  height: auto;
   width: 530px;
   border: 1px solid #d0d1d5;
-  border-radius: 3px;
+  border-radius: 0.3rem;
   margin: auto;
   margin-bottom: 10px;
-  padding: 12px;
 
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Not original, just a test */
 }
@@ -160,7 +152,7 @@ img.reference-thumb:hover {
   padding-right: 4px;
 }
 .post-container {
-  margin-top: 5rem;
+  margin-top: 8rem;
   margin-bottom: 5rem;
 }
 .reference-video {
@@ -190,4 +182,9 @@ img.reference-thumb:hover {
   justify-content: flex-end;
   align-items: center;
   width: auto;
+}
+.preview-video,
+.preview-video,
+.preview-pdf {
+  width: 100%;
 }

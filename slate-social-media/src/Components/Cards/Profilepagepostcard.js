@@ -1,7 +1,3 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { useComposePostContext } from "../Context/PostContext";
-import { useUserContext } from "../Context/UserContext";
 import "./Profilepagepostcard.css";
 function Profielpagepostcard({ newpostdata }) {
   const { avatar, username, content, fullName, createdAt, image, video, pdf } =

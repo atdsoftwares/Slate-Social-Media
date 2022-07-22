@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "../../Utils/SystemUtils";
 
 async function composeNewPostFn(postDispatch, post) {
   try {
@@ -14,6 +15,7 @@ async function composeNewPostFn(postDispatch, post) {
         payload: response.data.posts,
       })
     );
+    toast.success("Post successfully created");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -43,6 +45,7 @@ async function getComposedPostFn(postDispatch) {
         payload: response.data.posts,
       })
     );
+    toast.success("Post successfully created");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -60,6 +63,7 @@ async function deletePostFn(postDispatch, _id) {
         payload: response.data.posts,
       })
     );
+    toast.success("Post successfully deleted");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -70,6 +74,7 @@ function editPostFn(_id, image, video, content) {
   localStorage.setItem("image", image);
   localStorage.setItem("video", video);
   localStorage.setItem("content", content);
+  toast.success("Post can be edited");
 }
 
 async function addPostToBookmarkFn(postDispatch, _id) {
@@ -85,6 +90,7 @@ async function addPostToBookmarkFn(postDispatch, _id) {
         payload: response.data.bookmarks,
       })
     );
+    toast.success("Post successfully added to bookmarks");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -102,6 +108,7 @@ async function getBookmarkedPostsFn(postDispatch) {
         payload: response.data.bookmarks,
       })
     );
+    toast.success("Bookmarked posts successfully fetched");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -120,6 +127,7 @@ async function removeBookmarkedPostsFn(postDispatch, _id) {
         payload: response.data.bookmarks,
       })
     );
+    toast.success("Post successfully removed from bookmarks");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -139,6 +147,7 @@ async function likesPostFn(postDispatch, _id) {
         payload: response.data.posts,
       });
     });
+    toast.success("Post successfully liked");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -158,6 +167,7 @@ async function dislikesPostFn(postDispatch, _id) {
         payload: response.data.posts,
       })
     );
+    toast.success("Post successfully disliked");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -174,6 +184,7 @@ async function getPostsbyIdFn(commentsDispatch, _id) {
         payload: response.data.post,
       })
     );
+    toast.success("Post successfully fetched");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -190,6 +201,7 @@ async function getPostByUsernameFn(postDispatch, username) {
         payload: response.data.posts,
       })
     );
+    toast.success("Post successfully fetched");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -208,6 +220,7 @@ async function updatePostFn(_id, post, postDispatch) {
         payload: response.data.posts,
       });
     });
+    toast.success("Post successfully updated");
   } catch (error) {
     console.log(`something went wrong`, error);
   }

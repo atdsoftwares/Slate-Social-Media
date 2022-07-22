@@ -1,7 +1,4 @@
-import React from "react";
-import Login from "../../Components/AuthForms/Login";
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
+import { Footer, Header, Login } from "../../Components/IndexAllComponents";
 
 function Loginpage() {
   return (

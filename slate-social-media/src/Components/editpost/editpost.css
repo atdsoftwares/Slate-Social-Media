@@ -1,8 +1,73 @@
-.compose-post-editor {
+.compose-post-editor1 {
   width: 100%;
-  padding: 1rem;
 }
-span.editor-icon {
+span.editor-icon1 {
   font-size: 1.1rem;
   cursor: pointer;
+}
+/* Feed */
+
+.feed__input1 {
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  padding: 10px;
+  color: gray;
+  padding-left: 15px;
+}
+
+.feed__input1 > form {
+  display: flex;
+  width: 100%;
+}
+
+.feed__input1 > form > input {
+  border: none;
+  flex: 1;
+  margin-left: 10px;
+  outline-width: 0;
+  font-weight: 600;
+}
+
+.feed__input1 > form > button {
+  display: none;
+}
+
+.feed__inputOptions1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.inputOption1 {
+  display: flex;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+  padding: 10px;
+}
+
+textarea.feed__input1 {
+  resize: none;
+  width: 100%;
+  border: 1px solid gray;
+  outline: none;
+  font-size: 1.5rem;
+  color: black;
+}
+.mesg-editor-send1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.send-edit-post-btn1 {
+  padding: 1rem;
+}
+span.material-icons {
+  cursor: pointer;
+}
+span.material-icons:hover {
+  color: #d4003c;
+  transform: scale(1.1);
 }

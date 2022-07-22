@@ -1,15 +1,13 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Navigate, useNavigate } from "react-router-dom";
+import {
+  React,
+  useEffect,
+  useState,
+  useNavigate,
+  useDispatch,
+  useSelector,
+} from "../../Utils/SystemUtils";
 import { updatePostFn } from "../../redux/reducers/postsSlice";
-
-import { useComposePostContext } from "../Context/PostContext";
-import { useUserContext } from "../Context/UserContext";
 import Editpost from "../editpost/Editpost";
-import RTEeditor from "../RTEeditor/RTEeditor";
-// import { getComposedPostFn, updatePostFn } from "../Services/Post/Postservices";
-// import { getUserDetailsFn } from "../Services/User/Userservices";
 import "./EditPostForm.css";
 
 function EditPostForm() {
@@ -28,10 +26,6 @@ function EditPostForm() {
     pdf: pdf ? pdf : null,
   };
 
-  console.log(
-    "🚀 ~ file: EditPostForm.js ~ line 25 ~ EditPostForm ~ post",
-    post
-  );
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -144,7 +138,7 @@ function EditPostForm() {
                     X
                   </span>
                   <video
-                    className="video-preview"
+                    className="preview-video"
                     controls
                     src={video}
                     type="video/mp4"

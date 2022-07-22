@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "../../Utils/SystemUtils";
 
 export async function followUserFn(userDispatch, userId) {
   try {
@@ -13,6 +14,7 @@ export async function followUserFn(userDispatch, userId) {
         payload: response.data.user,
       })
     );
+    toast.success("User successfully followed");
   } catch (error) {
     console.log(`something went wrong`, error);
   }
@@ -31,6 +33,7 @@ export async function unFollowUserFn(userDispatch, userId) {
         payload: response.data.user,
       })
     );
+    toast.success("User successfully unfollowed");
     console.log(response);
   } catch (error) {
     console.log(`something went wrong`, error);

@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import {
+  Link,
+  useNavigate,
+  useDispatch,
+  useSelector,
+  useState,
+} from "../../Utils/SystemUtils";
 import { loginHandler } from "../../redux/reducers/authSlice";
-import { useLoginSignupContext } from "../Context/LoginSignupContext";
 
 import "./Login.css";
 function Login() {
@@ -11,8 +14,6 @@ function Login() {
   const [username, setUsername] = useState("");
 
   const [password, setPassword] = useState("");
-
-  const userDetails = { username, password };
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
