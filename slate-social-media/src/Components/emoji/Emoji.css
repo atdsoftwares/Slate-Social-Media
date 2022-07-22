@@ -1,8 +1,11 @@
 .picker-container {
+  width: 70%;
   position: absolute;
-  width: 40%;
+  top: 62%;
+  left: 42%;
 }
 
-.input-style1 {
+span.material-icons.input-style1 {
   cursor: pointer;
+  font-size: 2.2rem;
 }

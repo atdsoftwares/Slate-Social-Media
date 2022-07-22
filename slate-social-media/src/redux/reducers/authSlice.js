@@ -1,6 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { axios, toast } from "../../Utils/SystemUtils";
 
 const initialState = {
   name: "",
@@ -19,8 +18,8 @@ export const loginHandler = createAsyncThunk(
         password: userDetails.password,
       });
       localStorage.setItem("token", response.data.encodedToken);
+      toast.success("Login Successful");
       return response.data.foundUser;
-      // console.log(response.data.foundUser);
     } catch (error) {
       console.log(error);
     }
@@ -38,42 +37,32 @@ export const signUpHandler = createAsyncThunk(
         password: userDetails.password,
       });
       localStorage.setItem(`token`, response.data.encodedToken);
-      //   Toast({ type: "info", message: "Signed Up " });
+      toast.success("Signup Successful");
     } catch (error) {
       console.log(error);
     }
   }
 );
 
+export function logoutHandler() {
+  localStorage.clear();
+  toast.success("Logout Successfully");
+}
+
 export const authSlice = createSlice({
   name: "auth",
   initialState,
-  reducers: {
-    logoutHandler: () => localStorage.clear(),
-  },
+  reducers: {},
   extraReducers: {
-    [loginHandler.pending]: (state, action) => {
-      state.loginData = [];
-    },
     [loginHandler.fulfilled]: (state, action) => {
       state.loginData = action.payload;
-      // localStorage.setItem(`token`, action.payload.encodedToken);
     },
-    [loginHandler.rejected]: (state, action) => {
-      state.loginData = [];
-    },
-    [signUpHandler.pending]: (state, action) => {
-      state.loginData = [];
-    },
+
     [signUpHandler.fulfilled]: (state, action) => {
       state.loginData = action.payload;
       localStorage.setItem(`token`, action.payload.encodedToken);
     },
-    [signUpHandler.rejected]: (state, action) => {
-      state.loginData = [];
-    },
   },
 });
 
-export const { logoutHandler } = authSlice.actions;
 export default authSlice.reducer;

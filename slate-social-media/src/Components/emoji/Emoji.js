@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import { React, useState } from "../../Utils/SystemUtils";
 import Picker from "emoji-picker-react";
 import "./Emoji.css";
 function Emoji({ setEditorText }) {
-  const [inputStr, setInputStr] = useState("");
   const [showPicker, setShowPicker] = useState(false);
 
   const onEmojiClick = (event, emojiObject) => {
@@ -17,7 +16,6 @@ function Emoji({ setEditorText }) {
           className="material-icons input-style1"
           onClick={() => setShowPicker((val) => !val)}
         >
-          {" "}
           add_reaction
         </span>
 

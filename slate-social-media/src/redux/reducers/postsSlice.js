@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axios, toast } from "../../Utils/SystemUtils";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -24,6 +24,7 @@ export const composeNewPostFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: { postData: { ...post } },
       });
+      toast.success("Post Successfully created");
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -51,6 +52,7 @@ export const deletePostFn = createAsyncThunk(
         url: `/api/posts/${_id}`,
         headers: { authorization: localStorage.getItem("token") },
       });
+      toast.success("Post Successfully deleted");
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -64,6 +66,7 @@ export function editPostFn(_id, image, video, content, pdf) {
   localStorage.setItem("video", video);
   localStorage.setItem("content", content);
   localStorage.setItem("pdf", pdf);
+  toast.success("Post can be  edited");
 }
 
 export const addPostToBookmarkFn = createAsyncThunk(
@@ -76,6 +79,7 @@ export const addPostToBookmarkFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: {},
       });
+      toast.success("Post Successfully added to bookmarks");
       return response.data.bookmarks;
     } catch (error) {
       console.log(error);
@@ -92,6 +96,7 @@ export const getBookmarkedPostsFn = createAsyncThunk(
         url: `/api/users/bookmark`,
         headers: { authorization: localStorage.getItem("token") },
       });
+      toast.success("Bookmarked Posts fetched");
       return response.data.bookmarks;
     } catch (error) {
       console.log(error);
@@ -109,6 +114,7 @@ export const removeBookmarkedPostsFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: {},
       });
+      toast.success("Post Successfully removed from bookmarks");
       return response.data.bookmarks;
     } catch (error) {
       console.log(error);
@@ -124,6 +130,7 @@ export const likesPostFn = createAsyncThunk("posts/likesPost", async (_id) => {
       headers: { authorization: localStorage.getItem("token") },
       data: {},
     });
+    toast.success("Post Successfully liked");
     return response.data.posts;
   } catch (error) {
     console.log(error);
@@ -140,6 +147,7 @@ export const dislikesPostFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: {},
       });
+      toast.success("Post Successfully disliked");
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -152,6 +160,7 @@ export const getPostsbyIdFn = createAsyncThunk(
   async (_id) => {
     try {
       const response = await axios.get(`/api/posts/${_id}`);
+
       return response.data.post;
     } catch (error) {
       console.log(error);
@@ -164,6 +173,7 @@ export const getPostByUserNameFn = createAsyncThunk(
   async (username) => {
     try {
       const response = await axios.get(`/api/posts/user/${username}`);
+
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -181,6 +191,7 @@ export const updatePostFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: { postData: { ...data.post } },
       });
+      toast.success("Post Successfully updated");
       return response.data.posts;
     } catch (error) {
       console.log(error);

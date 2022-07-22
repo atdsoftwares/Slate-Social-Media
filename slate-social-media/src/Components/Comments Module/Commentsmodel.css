@@ -6,10 +6,6 @@
   box-sizing: border-box;
 }
 
-body {
-  background-color: #e9ebee;
-}
-
 .f-card {
   background-color: white;
   /*height:400px;*/
@@ -215,11 +211,11 @@ p.text-content {
   align-items: center;
   flex-direction: column;
 }
-hr {
+/* hr {
   width: 100%;
   height: 1px;
   background-color: #e5e5e5;
-}
+} */
 .like-dislike-button {
   display: flex;
   justify-content: center;

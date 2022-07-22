@@ -1,18 +1,21 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { useComposePostContext } from "../../Components/Context/PostContext";
-import Footer from "../../Components/Footer/Footer";
-import Header from "../../Components/Header/Header";
-import PostModel from "../../Components/Post Model/PostModel";
-
-import Sidebar from "../../Components/Sidebar/Sidebar";
+import {
+  React,
+  useDispatch,
+  useSelector,
+  useEffect,
+} from "../../Utils/SystemUtils";
 import { getComposedPostFn } from "../../redux/reducers/postsSlice";
 import "./Explorepage.css";
+import {
+  Footer,
+  Header,
+  Postcard,
+  Sidebar,
+} from "../../Components/IndexAllComponents";
 function Explorepage() {
   const dispatch = useDispatch();
   const likespost = useSelector((state) => state.posts.likespost);
   const getComposePost = useSelector((state) => state.posts.getComposePost);
-  // const { getComposePost, postDispatch } = useComposePostContext();
 
   useEffect(() => {
     dispatch(getComposedPostFn());
@@ -22,9 +25,11 @@ function Explorepage() {
     <div>
       <Header />
       <Sidebar />
-      {getComposePost.map((postdata) => {
-        return <PostModel postdata={postdata} key={postdata._id} />;
-      })}
+      <div className="explore-page-post-card">
+        {getComposePost.map((postdata) => {
+          return <Postcard postdata={postdata} key={postdata._id} />;
+        })}
+      </div>
 
       <Footer />
     </div>

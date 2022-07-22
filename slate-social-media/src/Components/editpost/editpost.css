@@ -1,88 +1,73 @@
-.wrapper {
-  background: #fff;
-  max-width: 475px;
-  margin: 1rem;
+.compose-post-editor1 {
   width: 100%;
-  border-radius: 15px;
-  padding: 25px 25px 15px 25px;
-  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
 }
-.input-box {
-  padding-top: 10px;
-  border-bottom: 1px solid #e6e6e6;
+span.editor-icon1 {
+  font-size: 1.1rem;
+  cursor: pointer;
 }
-.input-box .tweet-area {
-  position: relative;
-  min-height: 130px;
-  max-height: 170px;
-  overflow-y: auto;
-}
-.tweet-area::-webkit-scrollbar {
-  width: 0px;
+/* Feed */
+
+.feed__input1 {
+  border: 1px solid lightgray;
+  border-radius: 30px;
+  padding: 10px;
+  color: gray;
+  padding-left: 15px;
 }
 
-/*  */
-/*  */
-
-/*  */
-/*  */
-.bottom {
+.feed__input1 > form {
   display: flex;
-  margin-top: 13px;
-  align-items: center;
-  justify-content: center;
-}
-.bottom .icons {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-}
-.icons {
-  list-style: none;
-  /* color: #1da1f2; */
-  padding: 1.5rem;
-  height: 1rem;
-  width: 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.bottom .content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-/*  */
-.bottom {
-  cursor: pointer;
-}
-.bottom button {
-  padding: 9px 18px;
-  border: none;
-  outline: none;
-  border-radius: 50px;
-  font-size: 16px;
-  font-weight: 700;
-  background: #1da1f2;
-  color: #fff;
-  cursor: pointer;
-  opacity: 0.8;
-}
-.bottom button.active {
-  opacity: 1;
-  pointer-events: auto;
-}
-.bottom button:hover {
-  background: #0d8bd9;
-}
-textarea.input-box {
-  height: 8rem;
   width: 100%;
-  margin-bottom: 1rem;
-  max-height: auto;
-  outline: none;
+}
+
+.feed__input1 > form > input {
   border: none;
+  flex: 1;
+  margin-left: 10px;
+  outline-width: 0;
+  font-weight: 600;
+}
+
+.feed__input1 > form > button {
+  display: none;
+}
+
+.feed__inputOptions1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+.inputOption1 {
+  display: flex;
+  align-items: center;
+  color: gray;
+  cursor: pointer;
+  padding: 10px;
+}
+
+textarea.feed__input1 {
   resize: none;
+  width: 100%;
+  border: 1px solid gray;
+  outline: none;
+  font-size: 1.5rem;
+  color: black;
+}
+.mesg-editor-send1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+.send-edit-post-btn1 {
+  padding: 1rem;
+}
+span.material-icons {
+  cursor: pointer;
+}
+span.material-icons:hover {
+  color: #d4003c;
+  transform: scale(1.1);
 }

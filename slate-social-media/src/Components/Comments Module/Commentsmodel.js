@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import {
+  useEffect,
+  useState,
+  useDispatch,
+  useSelector,
+} from "../../Utils/SystemUtils";
+
 import {
   downvoteCommentFn,
   postCommentFn,

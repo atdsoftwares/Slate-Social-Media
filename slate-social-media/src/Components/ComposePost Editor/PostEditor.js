@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-// import { useComposePostContext } from "../Context/PostContext";
-import { v4 as uuid } from "uuid";
-// import RTEeditor from "../RTEeditor/RTEeditor";
-// import { composeNewPostFn } from "../Services/Post/Postservices";
+import {
+  React,
+  useEffect,
+  useState,
+  uuid,
+  useDispatch,
+  useSelector,
+} from "../../Utils/SystemUtils";
 import "./Posteditor.css";
-
-// import { getUserDetailsFn } from "../Services/User/Userservices";
-
 import { composeNewPostFn } from "../../redux/reducers/postsSlice";
-import { useDispatch, useSelector } from "react-redux";
 import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
 import Editpost from "../editpost/Editpost";
 function Posteditor() {
@@ -18,13 +17,9 @@ function Posteditor() {
   const [video, setVideo] = useState();
   const [pdf, setPdf] = useState();
   const [editorText, setEditorText] = useState("");
-  console.log(
-    "🚀 ~ file: PostEditor.js ~ line 22 ~ Posteditor ~ editorText",
-    editorText
-  );
+
   const dispatch = useDispatch();
 
-  // const { loginData } = useLoginSignupContext();
   const _id = loginData._id;
 
   useEffect(() => {

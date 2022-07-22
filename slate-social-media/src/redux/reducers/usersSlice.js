@@ -1,4 +1,4 @@
-import axios from "axios";
+import { axios, toast } from "../../Utils/SystemUtils";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
@@ -27,6 +27,7 @@ export const getUserDetailsFn = createAsyncThunk(
         method: "get",
         url: `/api/users/${_id}`,
       });
+      toast.success("User details fetched");
       return response.data.user;
     } catch (error) {
       console.log(error);
@@ -59,6 +60,7 @@ export const followUserFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: {},
       });
+      toast.success("User Successfully followed");
       return response.data.user;
     } catch (error) {
       console.log(error);
@@ -76,6 +78,7 @@ export const unFollowUserFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: {},
       });
+      toast.success("User Successfully unfollowed");
       return response.data.user;
     } catch (error) {
       console.log(error);
