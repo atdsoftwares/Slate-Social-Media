@@ -60,10 +60,8 @@ function EditPostForm() {
     setVideo(delete post.video);
   }
   const navigate = useNavigate();
-  function updateEditedPostFn(e) {
-    e.preventDefault();
+  function updateEditedPostFn() {
     dispatch(updatePostFn({ _id, post }));
-    // setEditorText("");
     // navigate("/explore");
   }
 

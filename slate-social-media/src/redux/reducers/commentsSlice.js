@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
-import axios from "axios";
+import { axios, toast } from "../../Utils/SystemUtils";
 
 const initialState = {
   composeComment: [],
@@ -17,7 +17,7 @@ export const postCommentFn = createAsyncThunk(
         headers: { authorization: localStorage.getItem("token") },
         data: { commentData: data.comment },
       });
-      console.log(response);
+      toast.success("Commented Successfully!");
       return response.data.comments;
     } catch (error) {
       console.log(error);
@@ -34,6 +34,7 @@ export const upvoteCommentFn = createAsyncThunk(
         url: `/api/comments/upvote/${data.postId}/${data.commentId}`,
         headers: { authorization: localStorage.getItem("token") },
       });
+      toast.success("Comment Successfully upvoted");
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -50,6 +51,7 @@ export const downvoteCommentFn = createAsyncThunk(
         url: `/api/comments/downvote/${data.postId}/${data.commentId}`,
         headers: { authorization: localStorage.getItem("token") },
       });
+      toast.success("Comment Successfully downvoted");
       return response.data.posts;
     } catch (error) {
       console.log(error);
@@ -66,6 +68,7 @@ export const getCommentsbyPostIdFn = createAsyncThunk(
         url: `/api/comments/${_id}`,
         headers: { authorization: localStorage.getItem("token") },
       });
+
       return response.data.comments;
     } catch (error) {
       console.log(error);

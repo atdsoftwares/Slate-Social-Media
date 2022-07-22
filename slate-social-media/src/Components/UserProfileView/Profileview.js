@@ -55,7 +55,7 @@ function Profileview() {
           </div>
           <div className="follow">
             Followers
-            <span class="profile-icons">{followers.length}</span>
+            <span class="profile-icons">{followers && followers.length}</span>
           </div>
           <div class="posts">
             Posts

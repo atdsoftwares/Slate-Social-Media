@@ -1,5 +1,4 @@
-import axios from "axios";
-import { toast } from "../../Utils/SystemUtils";
+import { toast, axios } from "../../Utils/SystemUtils";
 
 async function getUsersFn(userDispatch) {
   try {

@@ -6,6 +6,7 @@ import "./index.css";
 import { makeServer } from "./server";
 import { Provider } from "react-redux";
 import store from "./redux/store";
+
 // Call make Server
 makeServer();
 
