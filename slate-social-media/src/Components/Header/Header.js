@@ -6,6 +6,7 @@ function Header() {
   const token = localStorage.getItem("token");
   const dispatch = useDispatch();
   const loginData = useSelector((state) => state.auth.loginData);
+  console.log("🚀 ~ file: Header.js ~ line 9 ~ Header ~ loginData", loginData);
   return (
     <div>
       <nav class="navigation-menu">
@@ -34,7 +35,10 @@ function Header() {
           </div>
           <div className="user-avatar">
             {token ? (
-              <img src={loginData.avatar} alt="user avatar" />
+              <img
+                src={loginData.avatar && loginData.avatar}
+                alt="user avatar"
+              />
             ) : (
               <span class="material-icons">account_circle</span>
             )}

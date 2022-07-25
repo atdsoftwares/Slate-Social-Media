@@ -2,11 +2,28 @@ import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { axios, toast } from "../../Utils/SystemUtils";
 
 const initialState = {
-  name: "",
+  fullName: "",
   email: "",
-  number: "",
+  username: "",
   password: "",
   loginData: [],
+};
+
+export const authReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case "NAME":
+      return { ...state, fullName: action.payload };
+    case "EMAIL":
+      return { ...state, email: action.payload };
+    case "USER_NAME":
+      return { ...state, username: action.payload };
+    case "PASSWORD":
+      return { ...state, password: action.payload };
+    case "LOGINDATA":
+      return { ...state, loginData: action.payload };
+    default:
+      return state;
+  }
 };
 
 export const loginHandler = createAsyncThunk(
@@ -31,6 +48,7 @@ export const signUpHandler = createAsyncThunk(
   async (userDetails) => {
     try {
       const response = await axios.post(`/api/auth/signup`, {
+        avatar: userDetails.avatar,
         fullName: userDetails.fullName,
         username: userDetails.username,
         email: userDetails.email,

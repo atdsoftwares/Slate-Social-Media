@@ -9,6 +9,10 @@ import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
 import "./Profileview.css";
 function Profileview() {
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
+  console.log(
+    "🚀 ~ file: Profileview.js ~ line 12 ~ Profileview ~ getUserDetails",
+    getUserDetails
+  );
   const loginData = useSelector((state) => state.auth.loginData);
   const _id = loginData._id;
 
@@ -18,20 +22,16 @@ function Profileview() {
     dispatch(getUserDetailsFn(_id));
   }, []);
 
-  const {
-    avatar,
-    bgImg,
-    fullName,
-    followers,
-    following,
-    username,
-    job_description,
-  } = getUserDetails;
+  const { avatar, bgImg, fullName, followers, following, job_description } =
+    getUserDetails;
+
+  const imageBaseUrl = `https://picsum.photos/200/300`;
+
   const coverStyle = {
     height: "160px",
     width: "100%",
     borderRadius: "5px 5px 0 0",
-    backgroundImage: "url(" + bgImg + ")",
+    backgroundImage: `url(${bgImg && bgImg ? bgImg : imageBaseUrl})`,
     backgroundPosition: "center" /* Center the image */,
     backgroundRepeat: "no-repeat" /* Do not repeat the image */,
     backgroundSize:

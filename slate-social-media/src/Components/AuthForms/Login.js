@@ -10,9 +10,7 @@ import { loginHandler } from "../../redux/reducers/authSlice";
 import "./Login.css";
 function Login() {
   const loginData = useSelector((state) => state.auth.loginData);
-
   const [username, setUsername] = useState("");
-
   const [password, setPassword] = useState("");
 
   const dispatch = useDispatch();
