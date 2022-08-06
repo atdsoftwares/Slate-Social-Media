@@ -31,6 +31,5 @@
 - React Router v6
 - Redux Toolkit
 - Slate UI
-<!-- - TailwindCSS -->
 - MockBee
 - React Hot Toast
