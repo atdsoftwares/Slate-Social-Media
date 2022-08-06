@@ -1,12 +1,13 @@
-# Social Media APp
+# Social Media App
 
 [Slate Social Media ](https://slate-social-media.netlify.app/) - A Social Media Web App
 
 ## Features
 
 - Create, edit and delete posts
-- Create, edit and delete comments on posts
+- Create  comments on posts
 - Like/dislike post
+- Like/dislike comments
 - Add/remove post to/from bookmark
 - Follow/unfollow user
 - User profile
