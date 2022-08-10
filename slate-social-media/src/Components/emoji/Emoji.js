@@ -1,6 +1,6 @@
 import { React, useState } from "../../Utils/SystemUtils";
 import Picker from "emoji-picker-react";
-import "./Emoji.css";
+// import "./Emoji.css";
 function Emoji({ setEditorText }) {
   const [showPicker, setShowPicker] = useState(false);
 
@@ -13,7 +13,7 @@ function Emoji({ setEditorText }) {
     <div className="app">
       <div className="picker-container">
         <span
-          className="material-icons input-style1"
+          className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400"
           onClick={() => setShowPicker((val) => !val)}
         >
           add_reaction

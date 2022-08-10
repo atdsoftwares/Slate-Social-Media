@@ -65,6 +65,7 @@ export const signUpHandler = createAsyncThunk(
 export function logoutHandler() {
   localStorage.clear();
   toast.success("Logout Successfully");
+  window.location.reload();
 }
 
 export const authSlice = createSlice({

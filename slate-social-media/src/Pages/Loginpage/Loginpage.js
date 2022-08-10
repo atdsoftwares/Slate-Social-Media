@@ -5,7 +5,6 @@ function Loginpage() {
     <div>
       <Header />
       <Login />
-      <Footer />
     </div>
   );
 }

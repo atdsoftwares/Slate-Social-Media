@@ -7,6 +7,7 @@ import {
 } from "../../Utils/SystemUtils";
 import { getPostsbyIdFn } from "../../redux/reducers/postsSlice";
 import {
+  AccountSidebar,
   Commentsmodel,
   Footer,
   Header,
@@ -26,18 +27,19 @@ function Commentspage() {
   }, []);
 
   return (
-    <div>
-      <Header />
+    <div className="flex w-full justify-between items-start">
+      {/* <Header /> */}
       <Sidebar />
-      {newCommentsData.map((newcommentdata) => {
-        return (
-          <Commentsmodel
-            commentsdata={newcommentdata}
-            key={newCommentsData._id}
-          />
-        );
-      })}
-      <Footer />
+      {newCommentsData &&
+        newCommentsData.map((newcommentdata) => {
+          return (
+            <Commentsmodel
+              commentsdata={newcommentdata}
+              key={newCommentsData._id}
+            />
+          );
+        })}
+      <AccountSidebar />
     </div>
   );
 }

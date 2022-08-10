@@ -28,7 +28,8 @@ function ViewUserProfilesPage() {
 
   return (
     <div>
-      <Header />
+      {/* <Header /> */}
+      <Sidebar />
       <Viewuserprofile />
 
       {getPostsByUserName.map((newpostdata) => {
@@ -39,9 +40,6 @@ function ViewUserProfilesPage() {
           />
         );
       })}
-
-      <Sidebar />
-      <Footer />
     </div>
   );
 }

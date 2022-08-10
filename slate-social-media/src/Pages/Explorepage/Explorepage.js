@@ -5,10 +5,9 @@ import {
   useEffect,
 } from "../../Utils/SystemUtils";
 import { getComposedPostFn } from "../../redux/reducers/postsSlice";
-import "./Explorepage.css";
+// import "./Explorepage.css";
 import {
-  Footer,
-  Header,
+  AccountSidebar,
   Postcard,
   Sidebar,
 } from "../../Components/IndexAllComponents";
@@ -23,15 +22,15 @@ function Explorepage() {
 
   return (
     <div>
-      <Header />
-      <Sidebar />
-      <div className="explore-page-post-card">
-        {getComposePost.map((postdata) => {
-          return <Postcard postdata={postdata} key={postdata._id} />;
-        })}
+      <div className="flex w-full justify-between items-start">
+        <Sidebar />
+        <div className="w-full flex-col flex justify-center  ">
+          {getComposePost.map((postdata) => {
+            return <Postcard postdata={postdata} key={postdata._id} />;
+          })}
+        </div>
+        <AccountSidebar />
       </div>
-
-      <Footer />
     </div>
   );
 }

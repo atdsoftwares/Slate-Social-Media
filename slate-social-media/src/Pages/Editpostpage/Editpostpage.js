@@ -1,4 +1,5 @@
 import {
+  AccountSidebar,
   EditPostForm,
   Footer,
   Header,
@@ -7,11 +8,10 @@ import {
 
 function Editpostpage() {
   return (
-    <div>
-      <Header />
+    <div className="flex w-full justify-between items-start">
       <Sidebar />
       <EditPostForm />
-      <Footer />
+      <AccountSidebar />
     </div>
   );
 }
