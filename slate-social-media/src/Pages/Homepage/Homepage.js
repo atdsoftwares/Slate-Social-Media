@@ -1,8 +1,5 @@
 import {
   AccountSidebar,
-  Editpost,
-  Footer,
-  Header,
   Posteditor,
   Sidebar,
 } from "../../Components/IndexAllComponents";

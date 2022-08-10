@@ -10,13 +10,9 @@ import {
   unFollowUserFn,
 } from "../../redux/reducers/usersSlice";
 
-// import "./Profileview.css";
 function Profileview() {
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
-  console.log(
-    "🚀 ~ file: Profileview.js ~ line 12 ~ Profileview ~ getUserDetails",
-    getUserDetails
-  );
+
   const loginData = useSelector((state) => state.auth.loginData);
   const _id = loginData._id;
 
@@ -33,31 +29,6 @@ function Profileview() {
 
   return (
     <div>
-      {/* < class="container">
-        <div
-         
-          style={coverStyle}
-        >
-          <img src={avatar} class="profile" alt="profile-pic" />
-        </div>
-        <div class="profile-name">{fullName} </div>
-        <p class="about">{job_description}</p>
-        <div className="social-numbers">
-          <div className="following">
-            Following
-            <span class="profile-icons">{following && following.length}</span>
-          </div>
-          <div className="follow">
-            Followers
-            <span class="profile-icons">{followers && followers.length}</span>
-          </div>
-          <div class="posts">
-            Posts
-            <span class="profile-icons">{10}</span>
-          </div>
-        </div>
-        {/* <button class="btn btn-danger-outline">Following</button> */}
-
       <div class="flex justify-center">
         <div class="flex flex-col justify-center items-center md:flex-row md:max-w-xl rounded-lg bg-gray-400 shadow-lg">
           <img

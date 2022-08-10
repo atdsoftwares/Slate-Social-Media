@@ -1,6 +1,5 @@
 import { React, useState } from "../../Utils/SystemUtils";
 import Picker from "emoji-picker-react";
-// import "./Emoji.css";
 function Emoji({ setEditorText }) {
   const [showPicker, setShowPicker] = useState(false);
 

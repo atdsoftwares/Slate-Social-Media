@@ -9,7 +9,6 @@ import {
   getUserDetailsByIdFn,
   unFollowUserFn,
 } from "../../redux/reducers/usersSlice";
-// import "./Viewuserprofile.css";
 
 function Viewuserprofile() {
   const getUsersbyId = useSelector((state) => state.users.getUsersbyId);
@@ -33,27 +32,6 @@ function Viewuserprofile() {
   const imageBaseUrl = `https://picsum.photos/200/300`;
 
   return (
-    // <div className="composed-post">
-    //   <div div className="post-model1">
-    //     <img src={bgImg} alt="bgposter" className="bg-poster-img" />
-    //     <img src={avatar} alt="avatar" className="avatar-profile-img" />
-    //     <div className="btn-text-profile1">
-    //       <h3 className="profile-user-name"> {fullName}</h3>
-    //       <sub> @{username}</sub>
-    //       <p> {job_description}</p>
-    //     </div>
-
-    //     <div className="profile-counter1">
-    //       <div className="profiler-followers">
-    //         Follower: {followers && followers.length}
-    //       </div>
-    //       <div className="profiler-following">
-    //         Following: {following && following.length}
-    //       </div>
-    //       <div className="profiler-post"> posts : 10</div>
-    //     </div>
-    //   </div>
-    // </div>
     <div>
       <div class="flex justify-center ">
         <div class="flex flex-col justify-center mt-2 items-center md:flex-row md:max-w-xl rounded-lg bg-gray-400 shadow-lg">

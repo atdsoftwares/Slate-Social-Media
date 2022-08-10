@@ -7,7 +7,7 @@ import {
   likesPostFn,
   removeBookmarkedPostsFn,
 } from "../../redux/reducers/postsSlice";
-// import "./Postcard.css";
+
 function Postcard({ postdata }) {
   const {
     avatar,

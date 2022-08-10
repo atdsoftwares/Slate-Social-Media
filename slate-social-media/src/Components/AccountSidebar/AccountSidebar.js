@@ -10,7 +10,6 @@ import {
   unFollowUserFn,
 } from "../../redux/reducers/usersSlice";
 
-// import "./AccountSidebar.css";
 function AccountSidebar() {
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const getUsers = useSelector((state) => state.users.getUsers);
@@ -65,13 +64,13 @@ function AccountSidebar() {
             <span class="text-black text-sm font-thin px-5">12.4K Tweets</span>
           </div>
 
-          <div class="flex justify-end flex-col  ">
+          <div class="flex justify-end flex-col   ">
             <h1 class="bg-white p-2 font-bold rounded-lg border border-gray-200 w-auto text-gray-900">
               {" "}
               People you dont't know
             </h1>
             {getUsers.map((user) => (
-              <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900 ">
+              <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900  overflow-auto h-auto">
                 <li class="px-6 py-2 border-b border-gray-200 rounded-t-lg flex justify-around  items-center">
                   <Link to={`/ViewProfile/${user._id}`}>
                     <div class="flex justify-center items-center">

@@ -5,7 +5,6 @@ import {
   useEffect,
 } from "../../Utils/SystemUtils";
 import { getComposedPostFn } from "../../redux/reducers/postsSlice";
-// import "./Explorepage.css";
 import {
   AccountSidebar,
   Postcard,

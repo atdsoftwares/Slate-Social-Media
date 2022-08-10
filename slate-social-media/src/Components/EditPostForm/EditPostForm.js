@@ -8,7 +8,6 @@ import {
 } from "../../Utils/SystemUtils";
 import { updatePostFn } from "../../redux/reducers/postsSlice";
 import Editpost from "../editpost/Editpost";
-// import "./EditPostForm.css";
 
 function EditPostForm() {
   const [image, setImage] = useState();
@@ -36,17 +35,14 @@ function EditPostForm() {
     setEditorText(localStorage.getItem("content"));
   }, []);
   const [isEdit, setIsEdit] = useState(true);
-  const pdfPath = pdf ? pdf : null;
+
   function handleVideo(e) {
-    console.log(`video handles`);
     setVideo(URL.createObjectURL(e.target.files[0]));
   }
   function handlePdf(e) {
-    console.log(`pdf handles`);
     setPdf(URL.createObjectURL(e.target.files[0]));
   }
   function handleImage(e) {
-    console.log(`image handles`);
     setImage(URL.createObjectURL(e.target.files[0]));
   }
   function removeImage() {

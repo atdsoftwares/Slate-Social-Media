@@ -34,7 +34,6 @@ function Editpost({
   }, [_id]);
 
   const { avatar, username, fullName } = getUserDetails;
-  console.log("🚀 ~ file: Editpost.js ~ line 37 ~ avatar", avatar);
 
   return (
     <div className="w-full">

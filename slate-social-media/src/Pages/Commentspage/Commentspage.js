@@ -9,16 +9,11 @@ import { getPostsbyIdFn } from "../../redux/reducers/postsSlice";
 import {
   AccountSidebar,
   Commentsmodel,
-  Footer,
-  Header,
   Sidebar,
 } from "../../Components/IndexAllComponents";
 function Commentspage() {
-  // const commentsdata = useSelector((state) => state.comments.commentsdata);
   const getPostsbyId = useSelector((state) => state.posts.getPostsbyId);
-
   const _id = useParams();
-
   const newCommentsData = [{ ...getPostsbyId }];
 
   const dispatch = useDispatch();
@@ -28,7 +23,6 @@ function Commentspage() {
 
   return (
     <div className="flex w-full justify-between items-start">
-      {/* <Header /> */}
       <Sidebar />
       {newCommentsData &&
         newCommentsData.map((newcommentdata) => {

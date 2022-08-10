@@ -3,7 +3,7 @@ function Toasts() {
   return (
     <div>
       <Toaster
-        position="top-center"
+        position="top-right"
         reverseOrder={false}
         containerStyle={{
           top: "1rem",

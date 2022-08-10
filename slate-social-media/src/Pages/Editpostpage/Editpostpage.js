@@ -1,8 +1,6 @@
 import {
   AccountSidebar,
   EditPostForm,
-  Footer,
-  Header,
   Sidebar,
 } from "../../Components/IndexAllComponents";
 

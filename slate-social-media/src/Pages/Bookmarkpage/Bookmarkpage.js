@@ -2,8 +2,6 @@ import { useDispatch, useSelector, useEffect } from "../../Utils/SystemUtils";
 import { getBookmarkedPostsFn } from "../../redux/reducers/postsSlice";
 import {
   AccountSidebar,
-  Footer,
-  Header,
   Postcard,
   Sidebar,
 } from "../../Components/IndexAllComponents";

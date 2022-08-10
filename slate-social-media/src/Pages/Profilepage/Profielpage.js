@@ -7,11 +7,9 @@ import {
 
 import { getPostByUserNameFn } from "../../redux/reducers/postsSlice";
 import {
-  Header,
   Profileview,
   Sidebar,
   Profielpagepostcard,
-  Footer,
   AccountSidebar,
 } from "../../Components/IndexAllComponents";
 
