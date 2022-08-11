@@ -69,37 +69,38 @@ function AccountSidebar() {
               {" "}
               People you dont't know
             </h1>
-            {getUsers.map((user) => (
-              <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900  overflow-auto h-auto">
-                <li class="px-6 py-2 border-b border-gray-200 rounded-t-lg flex justify-around  items-center">
-                  <Link to={`/ViewProfile/${user._id}`}>
-                    <div class="flex justify-center items-center">
-                      <img
-                        src={user.avatar}
-                        class="rounded-full w-10 shadow-lg"
-                        alt="Avatar"
-                      />
-                      <p className="m-2">{user.fullName}</p>
-                    </div>
-                  </Link>
-                  {following && following?.some((u) => u._id === user._id) ? (
-                    <span
-                      class="material-icons cursor-pointer text-red-500"
-                      onClick={() => dispatch(unFollowUserFn(user._id))}
-                    >
-                      person_remove
-                    </span>
-                  ) : (
-                    <span
-                      class="material-icons cursor-pointer text-green-500"
-                      onClick={() => dispatch(followUserFn(user._id))}
-                    >
-                      person_add
-                    </span>
-                  )}
-                </li>
-              </ul>
-            ))}
+            {getUsers &&
+              getUsers.map((user) => (
+                <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900  overflow-auto h-auto">
+                  <li class="px-6 py-2 border-b border-gray-200 rounded-t-lg flex justify-around  items-center">
+                    <Link to={`/ViewProfile/${user._id}`}>
+                      <div class="flex justify-center items-center">
+                        <img
+                          src={user.avatar}
+                          class="rounded-full w-10 shadow-lg"
+                          alt="Avatar"
+                        />
+                        <p className="m-2">{user.fullName}</p>
+                      </div>
+                    </Link>
+                    {following && following?.some((u) => u._id === user._id) ? (
+                      <span
+                        class="material-icons cursor-pointer text-red-500"
+                        onClick={() => dispatch(unFollowUserFn(user._id))}
+                      >
+                        person_remove
+                      </span>
+                    ) : (
+                      <span
+                        class="material-icons cursor-pointer text-green-500"
+                        onClick={() => dispatch(followUserFn(user._id))}
+                      >
+                        person_add
+                      </span>
+                    )}
+                  </li>
+                </ul>
+              ))}
           </div>
 
           <div class="copyright text-center">

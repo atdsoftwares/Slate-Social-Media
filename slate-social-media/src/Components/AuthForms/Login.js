@@ -112,11 +112,13 @@ function Login() {
             >
               Password
             </label>
+
             <input
               type="password"
               required
               onChange={(e) => setPassword(e.target.value)}
               class="form-control block
+      
         w-full
         px-3
         py-1.5
@@ -145,6 +147,7 @@ function Login() {
       bg-blue-600
       text-white
       font-medium
+      cursor-pointer
       text-xs
       leading-tight
       uppercase

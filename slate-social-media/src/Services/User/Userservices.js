@@ -51,4 +51,22 @@ export async function getUserDetailsByIdFn(userDispatch, paramsId) {
   }
 }
 
+export async function submitEditedUserProfile(userDispatch, userData) {
+  try {
+    const response = await axios({
+      method: "POST",
+      url: `/api/users/edit`,
+      data: { userData },
+    }).then((response) =>
+      userDispatch({
+        type: "GET_USER_DETAILS",
+        payload: response.data.user,
+      })
+    );
+    toast.success("User details updated successfully");
+  } catch (error) {
+    console.log(`something went wrong`, error);
+  }
+}
+
 export { getUsersFn, getUserDetailsFn };

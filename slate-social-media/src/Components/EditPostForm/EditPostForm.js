@@ -16,6 +16,7 @@ function EditPostForm() {
   const [editorText, setEditorText] = useState();
   const [_id, setId] = useState();
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
+
   const { username, avatar, fullName } = getUserDetails;
   const post = {
     _id,

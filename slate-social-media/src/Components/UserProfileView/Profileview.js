@@ -9,20 +9,24 @@ import {
   getUserDetailsFn,
   unFollowUserFn,
 } from "../../redux/reducers/usersSlice";
+import EditProfileModal from "../EditProfileModal/EditProfileModal";
 
 function Profileview() {
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
+  console.log(
+    "🚀 ~ file: Profileview.js ~ line 16 ~ Profileview ~ getUserDetails",
+    getUserDetails
+  );
 
   const loginData = useSelector((state) => state.auth.loginData);
   const _id = loginData._id;
 
-  const userId = _id;
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserDetailsFn(_id));
   }, []);
 
-  const { avatar, bgImg, fullName, followers, following, job_description } =
+  const { avatar, bgImg, fullName, followers, following, bio, link, username } =
     getUserDetails;
 
   const imageBaseUrl = `https://picsum.photos/200/300`;
@@ -45,12 +49,13 @@ function Profileview() {
           </div>
 
           <div class="p-2 flex flex-col justify-start">
-            <span class="text-gray-900 text-xl font-medium ">
+            <span class="text-gray-900 text-base font-medium flex items-center ">
               {fullName && fullName}
+              <span className="text-xs ml-1"> @{username && username}</span>
+              <EditProfileModal />
             </span>
-            <span class="text-gray-700 text-sm">
-              {job_description && job_description}
-            </span>
+            <span class="text-gray-700 text-sm">{bio && bio}</span>
+            <span class="text-gray-700 text-sm">{link && link}</span>
 
             <span class="text-gray-700 text-sm flex w-auto justify-center items-center">
               Followers: {followers && followers.length} , Following:{" "}

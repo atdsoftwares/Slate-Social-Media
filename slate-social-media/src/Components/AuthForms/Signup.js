@@ -12,11 +12,12 @@ function Signup() {
   const loginData = useSelector((state) => state.auth.loginData);
 
   const [fullName, setFullName] = useState("");
-  const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
   const [avatar, setAvatar] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
+
   function submitSignUp(e) {
     e.preventDefault();
     dispatch(signUpHandler({ avatar, fullName, username, email, password }));
@@ -269,6 +270,7 @@ function Signup() {
       py-2.5
       bg-blue-600
       text-white
+      cursor-pointer
       font-medium
       text-xs
       leading-tight
