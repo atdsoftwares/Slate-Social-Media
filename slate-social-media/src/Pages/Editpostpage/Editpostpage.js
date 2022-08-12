@@ -1,17 +1,15 @@
 import {
+  AccountSidebar,
   EditPostForm,
-  Footer,
-  Header,
   Sidebar,
 } from "../../Components/IndexAllComponents";
 
 function Editpostpage() {
   return (
-    <div>
-      <Header />
+    <div className="flex w-full justify-between items-start">
       <Sidebar />
       <EditPostForm />
-      <Footer />
+      <AccountSidebar />
     </div>
   );
 }

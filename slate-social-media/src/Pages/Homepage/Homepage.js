@@ -1,19 +1,15 @@
 import {
   AccountSidebar,
-  Footer,
-  Header,
   Posteditor,
   Sidebar,
 } from "../../Components/IndexAllComponents";
 
 function Homepage() {
   return (
-    <div>
-      <Header />
+    <div className="flex w-full justify-between items-start">
       <Sidebar />
       <Posteditor />
       <AccountSidebar />
-      <Footer />
     </div>
   );
 }

@@ -6,7 +6,7 @@ import {
   useDispatch,
   useSelector,
 } from "../../Utils/SystemUtils";
-import "./Posteditor.css";
+// import "./Posteditor.css";
 import { composeNewPostFn } from "../../redux/reducers/postsSlice";
 import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
 import Editpost from "../editpost/Editpost";
@@ -61,48 +61,48 @@ function Posteditor() {
   }
 
   return (
-    <div>
+    <div className="flex flex-col justify-center items-center ">
       <form>
-        <div className="rte-editor">
-          <div className="avatar-editor">
-            <div>
-              <img src={avatar} alt="avatar" className="avatar-img" />
-              <div> @{username}</div>
-            </div>
-
-            <Editpost
-              setEditorText={setEditorText}
-              handleImage={handleImage}
-              handleVideo={handleVideo}
-              handlePdf={handlePdf}
-              submitForm={submitForm}
-              editorText={editorText}
-            />
-          </div>
+        <div className="w-full">
+          <Editpost
+            setEditorText={setEditorText}
+            handleImage={handleImage}
+            handleVideo={handleVideo}
+            handlePdf={handlePdf}
+            submitForm={submitForm}
+            editorText={editorText}
+          />
         </div>
       </form>
-      <div className="media-preview">
-        <h3 className="preview-text"> preview your data</h3>
-        {pdf && (
-          <div>
-            <embed alt="not found pdf" className="preview-pdf" src={pdf} />
-          </div>
-        )}
+      <div
+        className="
+        mt-2
+      "
+      >
+        <h3 className="text-lg"> preview your data</h3>
+        <div class="flex justify-center items-center p-2">
+          {pdf && (
+            <div>
+              <embed alt="not found pdf" className="w-32 h-auto" src={pdf} />
+            </div>
+          )}
 
-        {image && (
-          <div>
-            <img alt="not found" className="preview-image" src={image} />
-          </div>
-        )}
+          {image && (
+            <div>
+              <img alt="not found" className="w-28 m-2 h-auto" src={image} />
+            </div>
+          )}
 
-        {video && (
-          <div>
-            <video className="video-preview" controls>
-              <source src={video} type="video/mp4" />
-            </video>
-          </div>
-        )}
+          {video && (
+            <div>
+              <video className="w-28 h-auto" controls>
+                <source src={video} type="video/mp4" />
+              </video>
+            </div>
+          )}
+        </div>
       </div>
+      <hr className="w-full" />
     </div>
   );
 }

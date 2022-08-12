@@ -5,8 +5,6 @@ import {
   React,
 } from "../../Utils/SystemUtils";
 import {
-  Footer,
-  Header,
   Sidebar,
   Viewuserprofile,
   Viewuserprofilecard,
@@ -28,7 +26,7 @@ function ViewUserProfilesPage() {
 
   return (
     <div>
-      <Header />
+      <Sidebar />
       <Viewuserprofile />
 
       {getPostsByUserName.map((newpostdata) => {
@@ -39,9 +37,6 @@ function ViewUserProfilesPage() {
           />
         );
       })}
-
-      <Sidebar />
-      <Footer />
     </div>
   );
 }

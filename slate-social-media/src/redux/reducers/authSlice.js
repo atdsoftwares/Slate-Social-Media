@@ -9,23 +9,6 @@ const initialState = {
   loginData: [],
 };
 
-export const authReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "NAME":
-      return { ...state, fullName: action.payload };
-    case "EMAIL":
-      return { ...state, email: action.payload };
-    case "USER_NAME":
-      return { ...state, username: action.payload };
-    case "PASSWORD":
-      return { ...state, password: action.payload };
-    case "LOGINDATA":
-      return { ...state, loginData: action.payload };
-    default:
-      return state;
-  }
-};
-
 export const loginHandler = createAsyncThunk(
   "auth/login",
   async (userDetails) => {
@@ -65,6 +48,7 @@ export const signUpHandler = createAsyncThunk(
 export function logoutHandler() {
   localStorage.clear();
   toast.success("Logout Successfully");
+  window.location.reload();
 }
 
 export const authSlice = createSlice({

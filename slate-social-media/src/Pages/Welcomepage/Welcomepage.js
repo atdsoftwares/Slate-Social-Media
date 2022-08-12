@@ -1,11 +1,10 @@
-import { Footer, Header, Hero } from "../../Components/IndexAllComponents";
+import { Header, Hero } from "../../Components/IndexAllComponents";
 
 function Welcomepage() {
   return (
     <div>
       <Header />
       <Hero />
-      <Footer />
     </div>
   );
 }

@@ -86,6 +86,26 @@ export const unFollowUserFn = createAsyncThunk(
   }
 );
 
+export const submitEditedUserProfile = createAsyncThunk(
+  "users/submitEditedUserProfile",
+  async (data) => {
+    try {
+      const response = await axios({
+        method: "post",
+        url: `/api/users/edit`,
+        headers: { authorization: localStorage.getItem("token") },
+        data: { userData: { ...data } },
+      });
+
+      toast.success("User details updated");
+      console.log("🚀 ~ file: usersSlice.js ~ line 99 ~ data", response);
+      return response.data.user;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
 const userSlice = createSlice({
   name: "users",
   initialState,
@@ -100,7 +120,9 @@ const userSlice = createSlice({
     [getUserDetailsByIdFn.fulfilled]: (state, action) => {
       state.getUsersbyId = action.payload;
     },
-
+    [submitEditedUserProfile.fulfilled]: (state, action) => {
+      state.getUserDetails = action.payload;
+    },
     [followUserFn.fulfilled]: (state, action) => {
       state.getUserDetails = action.payload;
     },

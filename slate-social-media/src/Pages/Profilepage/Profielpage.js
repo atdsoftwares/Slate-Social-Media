@@ -7,11 +7,10 @@ import {
 
 import { getPostByUserNameFn } from "../../redux/reducers/postsSlice";
 import {
-  Header,
   Profileview,
   Sidebar,
   Profielpagepostcard,
-  Footer,
+  AccountSidebar,
 } from "../../Components/IndexAllComponents";
 
 function Profielpage() {
@@ -27,21 +26,21 @@ function Profielpage() {
   }, [username]);
   return (
     <div>
-      <Header />
-      <Sidebar />
-      <Profileview />
-      {/* <PostModel/> */}
-
-      {getPostsByUserName.map((newpostdata) => {
-        return (
-          <Profielpagepostcard
-            key={newpostdata._id}
-            newpostdata={newpostdata}
-          />
-        );
-      })}
-
-      <Footer />
+      <div className="flex w-full justify-center items-start">
+        <Sidebar />
+        <div className="w-full flex-col flex justify-center  ">
+          <Profileview />
+          {getPostsByUserName.map((newpostdata) => {
+            return (
+              <Profielpagepostcard
+                key={newpostdata._id}
+                newpostdata={newpostdata}
+              />
+            );
+          })}
+        </div>
+        <AccountSidebar />
+      </div>
     </div>
   );
 }

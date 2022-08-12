@@ -10,14 +10,12 @@ import {
   Profielpage,
   Signuppage,
   ViewUserProfilesPage,
-  Welcomepage,
 } from "./Pages/IndexAllPages";
 
 function Page() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<Welcomepage />} />
         <Route
           path="/explore"
           element={
@@ -76,7 +74,7 @@ function Page() {
             </Auth>
           }
         />
-        <Route exact path="/login" element={<Loginpage />} />
+        <Route exact path="/" element={<Loginpage />} />
         <Route exact path="/signup" element={<Signuppage />} />
       </Routes>
     </div>
