@@ -59,15 +59,11 @@ function Postcard({ postdata }) {
           <div class="content-container">
             <div class="content-data">
               {image ? (
-                <img
-                  class="w-full p-2 h-auto"
-                  src={image}
-                  alt="uploaded-by-user"
-                />
+                <img class="w-full p-2 h-auto" src={image} />
               ) : (
                 <div>{null} </div>
               )}
-              {video ? (
+              {/* {video ? (
                 <video class="w-full p-2 h-auto" src={video} controls />
               ) : (
                 <div>{null} </div>
@@ -77,7 +73,7 @@ function Postcard({ postdata }) {
                 <embed class="w-full p-2 h-36" src={pdf} />
               ) : (
                 <div> {null}</div>
-              )}
+              )} */}
             </div>
           </div>
 

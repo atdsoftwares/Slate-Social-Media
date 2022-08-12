@@ -58,10 +58,11 @@ function EditPostForm() {
     setVideo(null);
   }
   const navigate = useNavigate();
+
   function updateEditedPostFn() {
-    // dispatch(updatePostFn({ _id, post }));
-    updatePostFn({ _id, post });
-    navigate("/explore");
+    dispatch(updatePostFn({ _id, post }));
+    // updatePostFn({ _id, post });
+    // navigate("/explore");
   }
 
   return (
@@ -78,7 +79,7 @@ function EditPostForm() {
             handlePdf={handlePdf}
           />
           <div class="flex justify-center items-center p-2">
-            {pdf && pdf ? (
+            {/* {pdf && pdf ? (
               <div>
                 <span
                   onClick={removePdf}
@@ -86,9 +87,9 @@ function EditPostForm() {
                 >
                   close
                 </span>
-                <embed className="w-32 mr-2 h-auto" src={pdf} disabled={true} />
+                <embed className="w-32 mr-2 h-auto" src={pdf} />
               </div>
-            ) : null}
+            ) : null} */}
 
             {image && image ? (
               <div>
@@ -102,7 +103,7 @@ function EditPostForm() {
               </div>
             ) : null}
 
-            {video && video ? (
+            {/* {video && video ? (
               <div>
                 <span
                   onClick={removeVideo}
@@ -114,7 +115,7 @@ function EditPostForm() {
                   <source src={video} type="video/mp4" />
                 </video>
               </div>
-            ) : null}
+            ) : null} */}
           </div>
           <hr className="w-full" />
 

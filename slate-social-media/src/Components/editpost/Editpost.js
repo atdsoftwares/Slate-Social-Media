@@ -63,7 +63,7 @@ function Editpost({
                 image
               </span>
             </label>
-            <label>
+            {/* <label>
               <input
                 type="file"
                 accept="video/*"
@@ -73,8 +73,8 @@ function Editpost({
               <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
                 videocam{" "}
               </span>
-            </label>
-            <label>
+            </label> */}
+            {/* <label>
               <input
                 name="userfile"
                 type="file"
@@ -85,7 +85,7 @@ function Editpost({
               <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
                 picture_as_pdf
               </span>
-            </label>
+            </label> */}
             <span class="material-icons text-sky-500 text-sm mt-1 ml-2">
               <label>
                 <Emoji setEditorText={setEditorText} />
