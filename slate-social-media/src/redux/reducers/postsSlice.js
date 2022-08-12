@@ -189,7 +189,8 @@ export const updatePostFn = createAsyncThunk(
         method: "post",
         url: `/api/posts/edit/${data._id}`,
         headers: { authorization: localStorage.getItem("token") },
-        data: { postData: { ...data.post } },
+        // data: { postData: { ...data.post } },
+        data: { postData: { ...data } },
       });
       toast.success("Post Successfully updated");
       return response.data.posts;

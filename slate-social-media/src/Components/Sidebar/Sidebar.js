@@ -19,14 +19,6 @@ function Sidebar() {
       <div class="flex fixed left-0">
         <div class="w-full flex">
           <div class="py-3 w-1/4 px-16 h-screen ">
-            <div class="logo">
-              <img
-                class="w-16"
-                src="https://static01.nyt.com/images/2014/08/10/magazine/10wmt/10wmt-superJumbo-v4.jpg"
-                alt=""
-                srcset=""
-              />
-            </div>
             <div class="side-menu my-8">
               <ol class="text-gray-700">
                 <li class="text-xl my-5 flex">

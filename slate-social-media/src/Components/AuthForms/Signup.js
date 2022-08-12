@@ -21,7 +21,7 @@ function Signup() {
   function submitSignUp(e) {
     e.preventDefault();
     dispatch(signUpHandler({ avatar, fullName, username, email, password }));
-    navigate("/explore");
+    navigate("/");
   }
 
   function handleImage(e) {
@@ -144,21 +144,7 @@ function Signup() {
                 type="text"
                 required
                 onChange={(e) => setFullName(e.target.value)}
-                class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleInput123"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 aria-describedby="emailHelp123"
                 placeholder="Full name"
               />
@@ -169,21 +155,7 @@ function Signup() {
                 accept="image/*"
                 onChange={handleImage}
                 required
-                class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-                id="exampleInput123"
+                class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
                 aria-describedby="emailHelp123"
                 placeholder="Upload Avatar"
               />
@@ -195,21 +167,7 @@ function Signup() {
               type="email"
               required
               onChange={(e) => setEmail(e.target.value)}
-              class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInput125"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Email address"
             />
           </div>
@@ -218,21 +176,7 @@ function Signup() {
               type="text"
               onChange={(e) => setUsername(e.target.value)}
               required
-              class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInput125"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="User Name"
             />
           </div>
@@ -241,21 +185,7 @@ function Signup() {
               type="password"
               required
               onChange={(e) => setPassword(e.target.value)}
-              class="form-control block
-        w-full
-        px-3
-        py-1.5
-        text-base
-        font-normal
-        text-gray-700
-        bg-white bg-clip-padding
-        border border-solid border-gray-300
-        rounded
-        transition
-        ease-in-out
-        m-0
-        focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInput126"
+              class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
               placeholder="Password"
             />
           </div>
@@ -264,30 +194,12 @@ function Signup() {
             type="submit"
             required
             value="Signup"
-            class="
-      w-full
-      px-6
-      py-2.5
-      bg-blue-600
-      text-white
-      cursor-pointer
-      font-medium
-      text-xs
-      leading-tight
-      uppercase
-      rounded
-      shadow-md
-      hover:bg-blue-700 hover:shadow-lg
-      focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0
-      active:bg-blue-800 active:shadow-lg
-      transition
-      duration-150
-      ease-in-out"
+            class=" w-full px-6 py-2.5 bg-blue-600 text-white cursor-pointer font-medium text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
           />
         </form>
         <h4 className="login-instruction">
           Already member ?
-          <Link to="/Login">
+          <Link to="/">
             <span class="text-white"> Login</span>
           </Link>{" "}
           here

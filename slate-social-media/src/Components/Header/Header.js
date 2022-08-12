@@ -17,13 +17,13 @@ function Header() {
 
             <div class="flex items-center">
               {!token ? (
-                <Link to="/login">
+                <Link to="/">
                   <span class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded">
                     Login
                   </span>
                 </Link>
               ) : (
-                <Link to="/login">
+                <Link to="/">
                   <span
                     onClick={() => dispatch(logoutHandler())}
                     class="text-xs inline-block py-1 px-2.5 leading-none text-center whitespace-nowrap align-baseline font-bold bg-blue-600 text-white rounded"

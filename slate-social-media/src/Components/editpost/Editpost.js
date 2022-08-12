@@ -37,13 +37,7 @@ function Editpost({
 
   return (
     <div className="w-full">
-      <div class="border-x-2 h-auto w-full ">
-        <div class="feed-title border-b-2 px-4 py-4 flex justify-start">
-          <h2 class="text-xl font-bold">Home</h2>
-          <span>
-            <i class="fa-solid text-xl text-sky-500 fa-book-open"></i>
-          </span>
-        </div>
+      <div>
         <div class="px-4 py-4 flex items-center">
           <img src={avatar} class="rounded-full w-12" alt="" srcset="" />
           <div class="form-field px-4 w-full ">

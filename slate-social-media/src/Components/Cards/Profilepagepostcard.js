@@ -30,11 +30,7 @@ function Profielpagepostcard({ newpostdata }) {
           <div class="content-container">
             <div class="content-data">
               {image ? (
-                <img
-                  class="w-full p-2 h-auto"
-                  src={image}
-                  alt="uploaded-by-user"
-                />
+                <img class="w-full p-2 h-auto" src={image} />
               ) : (
                 <div>{null} </div>
               )}

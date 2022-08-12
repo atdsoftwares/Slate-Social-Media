@@ -5,7 +5,6 @@ import Homepage from "./Homepage/Homepage";
 import Profielpage from "./Profilepage/Profielpage";
 import ViewUserProfilesPage from "./ViewUserProfiles/ViewUserProfilesPage";
 import Commentspage from "./Commentspage/Commentspage";
-import Welcomepage from "./Welcomepage/Welcomepage";
 import Loginpage from "./Loginpage/Loginpage";
 import Signuppage from "./Signuppage/Signuppage";
 
@@ -17,7 +16,6 @@ export {
   Profielpage,
   ViewUserProfilesPage,
   Commentspage,
-  Welcomepage,
   Loginpage,
   Signuppage,
 };
