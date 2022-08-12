@@ -20,6 +20,14 @@ function Login() {
     dispatch(loginHandler({ username, password }));
     navigate("/explore");
   }
+
+  function setupGuestLogin(e) {
+    e.preventDefault();
+    const username = "tanaypratap";
+    const password = "tanaypratap123";
+    setUsername(username);
+    setPassword(password);
+  }
   return (
     <div className="flex justify-center items-center mt-36 w-full">
       <div class="block p-6 rounded-lg shadow-lg bg-gray-600 max-w-sm ">
@@ -34,10 +42,9 @@ function Login() {
             <input
               type="text"
               required
+              value={username}
               onChange={(e) => setUsername(e.target.value)}
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInputEmail1"
-              aria-describedby="emailHelp"
               placeholder="Enter Username"
             />
             <small id="emailHelp" class="block mt-1 text-xs text-white">
@@ -55,18 +62,27 @@ function Login() {
             <input
               type="password"
               required
+              value={password}
               onChange={(e) => setPassword(e.target.value)}
               class="form-control block w-full px-3 py-1.5 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
-              id="exampleInputPassword1"
               placeholder="Password"
             />
           </div>
-
-          <input
-            type="submit"
-            value="Login"
-            class=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium cursor-pointer text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
-          />
+          <label>
+            <input
+              type="submit"
+              value="Login"
+              class=" w-full px-6 py-2.5 bg-blue-600 text-white font-medium cursor-pointer text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            />
+          </label>
+          <label>
+            <button
+              onClick={setupGuestLogin}
+              class=" w-full px-6 py-2.5 mt-2 bg-blue-600 text-white font-medium cursor-pointer text-xs leading-tight uppercase rounded shadow-md hover:bg-blue-700 hover:shadow-lg focus:bg-blue-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-blue-800 active:shadow-lg transition duration-150 ease-in-out"
+            >
+              Guest Login
+            </button>
+          </label>
         </form>
         <h4 className="text-center">
           Not a member ?

@@ -104,7 +104,7 @@ function Postcard({ postdata }) {
               <Link to={`/comments/${_id}`}>
                 <div
                   class="material-icons flex  justify-center items-center
-               text-yellow-600 hover:text-yellow-400 cursor-pointer
+               text-blue-400 hover:text-red-600 cursor-pointer
               "
                 >
                   textsms{" "}
@@ -133,7 +133,8 @@ function Postcard({ postdata }) {
             <div class="flex justify-center items-center">
               <Link to={`/edit/${_id}`}>
                 <span
-                  class="material-icons flex  justify-center items-center  text-blue-400 hover:text-blue-600 cursor-pointer"
+                  class="material-icons flex  justify-center items-center 
+                   text-blue-400 hover:text-red-600 cursor-pointer"
                   onClick={() =>
                     dispatch(editPostFn(_id, image, video, content, pdf))
                   }

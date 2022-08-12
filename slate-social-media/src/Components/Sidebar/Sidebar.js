@@ -1,13 +1,20 @@
 import { useEffect } from "react";
 import { logoutHandler } from "../../redux/reducers/authSlice";
 import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
-import { React, Link, useSelector, useDispatch } from "../../Utils/SystemUtils";
+import {
+  React,
+  Link,
+  useSelector,
+  useDispatch,
+  useNavigate,
+} from "../../Utils/SystemUtils";
 
 function Sidebar() {
   const loginData = useSelector((state) => state.auth.loginData);
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
   const _id = loginData._id;
-
+  const navigate = useNavigate();
+  const redirectHome = () => navigate("/home");
   useEffect(() => {
     getUserDetailsFn(_id);
   }, [_id]);
@@ -55,25 +62,24 @@ function Sidebar() {
                 </li>
               </ol>
             </div>
-            <span class="btn bg-blue-600 mt-8 text-white rounded-full px-16 py-3">
+            <span
+              onClick={redirectHome}
+              class="btn cursor-pointer bg-blue-600 mt-8 text-white rounded-full px-16 py-3"
+            >
               Tweak
             </span>
-            <div class="user-profile flex mt-10 items-center">
-              <div class="profile-img mx-2 h-8 w-8">
-                <img src={avatar && avatar} class="rounded-full w-12" alt="" />
-              </div>
-              <div class="flex flex-col justify-center items-center">
-                <p class="text-sm">{fullName && fullName}</p>
-                <span class="text-sm">@{username && username}</span>
-                <span
-                  onClick={() => dispatch(logoutHandler())}
-                  class="text-xs inline-block py-1 px-2.5
+
+            <div class="flex flex-col justify-center items-center w-24 mt-4 ml-8">
+              <p class="text-sm w-24">{fullName && fullName}</p>
+              <span class="text-sm">@{username && username}</span>
+              <span
+                onClick={() => dispatch(logoutHandler())}
+                class="text-xs inline-block py-1 px-2.5
                   cursor-pointer
                   leading-none text-center whitespace-nowrap align-baseline font-bold bg-red-600 text-white rounded-full"
-                >
-                  Logout
-                </span>
-              </div>
+              >
+                Logout
+              </span>
             </div>
           </div>
         </div>
