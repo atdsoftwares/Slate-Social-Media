@@ -23,7 +23,7 @@ function Explorepage() {
     <div>
       <div className="flex w-full justify-between items-start">
         <Sidebar />
-        <div className="w-full flex-col flex justify-center  ">
+        <div className="w-full flex-col flex justify-center ">
           {getComposePost.map((postdata) => {
             return <Postcard postdata={postdata} key={postdata._id} />;
           })}

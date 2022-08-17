@@ -1,15 +1,10 @@
-import {
-  Link,
-  useNavigate,
-  useDispatch,
-  useSelector,
-  useState,
-} from "../../Utils/SystemUtils";
+import { Link, useState } from "../../Utils/SystemUtils";
+import { useNavigate } from "react-router-dom";
 import { loginHandler } from "../../redux/reducers/authSlice";
-
-// import "./Login.css";
+import { useDispatch, useSelector } from "react-redux";
 function Login() {
   const loginData = useSelector((state) => state.auth.loginData);
+  console.log("🚀 ~ file: Login.js ~ line 7 ~ Login ~ loginData", loginData);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
@@ -18,7 +13,10 @@ function Login() {
   function submitLogin(e) {
     e.preventDefault();
     dispatch(loginHandler({ username, password }));
-    navigate("/explore");
+
+    setTimeout(() => {
+      navigate("/explore");
+    }, 1000);
   }
 
   function setupGuestLogin(e) {

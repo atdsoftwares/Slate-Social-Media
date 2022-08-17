@@ -19,12 +19,12 @@ function Profileview() {
   );
 
   const loginData = useSelector((state) => state.auth.loginData);
-  const _id = loginData._id;
+  const _id = loginData?._id;
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserDetailsFn(_id));
-  }, []);
+  }, [dispatch, _id]);
 
   const { avatar, bgImg, fullName, followers, following, bio, link, username } =
     getUserDetails;
@@ -61,27 +61,6 @@ function Profileview() {
               Followers: {followers && followers.length} , Following:{" "}
               {following && following.length} , Post :10
             </span>
-            {following && following?.some((u) => u._id === _id) ? (
-              <div className="flex justify-center">
-                Unfollow
-                <span
-                  class="material-icons cursor-pointer text-red-500"
-                  onClick={() => dispatch(unFollowUserFn(_id))}
-                >
-                  person_remove
-                </span>
-              </div>
-            ) : (
-              <div className="flex justify-center">
-                Follow
-                <span
-                  class="material-icons cursor-pointer text-green-500"
-                  onClick={() => dispatch(followUserFn(_id))}
-                >
-                  person_add
-                </span>
-              </div>
-            )}
           </div>
         </div>
       </div>

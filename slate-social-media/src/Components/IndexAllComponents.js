@@ -10,7 +10,6 @@ import Editpost from "./editpost/Editpost";
 import EditPostForm from "./EditPostForm/EditPostForm";
 import Emoji from "./emoji/Emoji";
 import Header from "./Header/Header";
-import Hero from "./Hero/Hero";
 import Postcard from "./PostCard-Exp/Postcard";
 import Sidebar from "./Sidebar/Sidebar";
 import Toasts from "./Toaster/Toasts";
@@ -29,7 +28,6 @@ export {
   Editpost,
   Emoji,
   Header,
-  Hero,
   EditPostForm,
   Postcard,
   Sidebar,

@@ -11,15 +11,19 @@ import {
 
 function Sidebar() {
   const loginData = useSelector((state) => state.auth.loginData);
+  console.log(
+    "🚀 ~ file: Sidebar.js ~ line 14 ~ Sidebar ~ loginData",
+    loginData
+  );
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
-  const _id = loginData._id;
+  const _id = loginData?._id;
   const navigate = useNavigate();
   const redirectHome = () => navigate("/home");
-  useEffect(() => {
-    getUserDetailsFn(_id);
-  }, [_id]);
+  // useEffect(() => {
+  //   getUserDetailsFn(_id);
+  // }, [_id]);
 
-  const { avatar, username, fullName } = getUserDetails;
+  // const { avatar, username, fullName } = getUserDetails;
   const dispatch = useDispatch();
   return (
     <div>
@@ -70,8 +74,8 @@ function Sidebar() {
             </span>
 
             <div class="flex flex-col justify-center items-center w-24 mt-4 ml-8">
-              <p class="text-sm w-24">{fullName && fullName}</p>
-              <span class="text-sm">@{username && username}</span>
+              {/* <p class="text-sm w-24">{fullName && fullName}</p>
+              <span class="text-sm">@{username && username}</span> */}
               <span
                 onClick={() => dispatch(logoutHandler())}
                 class="text-xs inline-block py-1 px-2.5

@@ -17,7 +17,7 @@ function Viewuserprofile() {
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(getUserDetailsByIdFn(paramsId));
-  }, [paramsId]);
+  }, [paramsId, dispatch]);
 
   const {
     _id,
@@ -26,7 +26,6 @@ function Viewuserprofile() {
     fullName,
     followers,
     following,
-    username,
     job_description,
   } = getUsersbyId;
   const imageBaseUrl = `https://picsum.photos/200/300`;

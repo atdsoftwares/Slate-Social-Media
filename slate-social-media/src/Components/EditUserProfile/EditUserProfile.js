@@ -7,14 +7,12 @@ import {
 } from "../../redux/reducers/usersSlice";
 
 function EditUserProfile({ toggleModal }) {
-  const getUserDetails = useSelector((state) => state.users.getUserDetails);
-
   const loginData = useSelector((state) => state.auth.loginData);
-  const _id = loginData._id;
+  const _id = loginData?._id;
 
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(getUserDetailsFn(_id));
+    getUserDetailsFn(_id);
   }, []);
 
   const [fullName, setFullName] = useState("");
