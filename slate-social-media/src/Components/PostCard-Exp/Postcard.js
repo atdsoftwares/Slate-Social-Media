@@ -17,9 +17,8 @@ function Postcard({ postdata }) {
     content,
     createdAt,
     image,
-    video,
+
     likes,
-    pdf,
     comments,
     likes: { likeCount, likedBy, dislikedBy },
   } = postdata;
@@ -59,21 +58,10 @@ function Postcard({ postdata }) {
           <div class="content-container">
             <div class="content-data">
               {image ? (
-                <img class="w-full p-2 h-auto" src={image} />
+                <img class="w-full p-2 h-auto" src={image} alt="images" />
               ) : (
                 <div>{null} </div>
               )}
-              {/* {video ? (
-                <video class="w-full p-2 h-auto" src={video} controls />
-              ) : (
-                <div>{null} </div>
-              )}
-
-              {pdf ? (
-                <embed class="w-full p-2 h-36" src={pdf} />
-              ) : (
-                <div> {null}</div>
-              )} */}
             </div>
           </div>
 
@@ -135,9 +123,7 @@ function Postcard({ postdata }) {
                 <span
                   class="material-icons flex  justify-center items-center 
                    text-blue-400 hover:text-red-600 cursor-pointer"
-                  onClick={() =>
-                    dispatch(editPostFn(_id, image, video, content, pdf))
-                  }
+                  onClick={() => dispatch(editPostFn(_id, image, content))}
                 >
                   edit
                 </span>

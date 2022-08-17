@@ -10,13 +10,10 @@ import { getUserDetailsFn } from "../../redux/reducers/usersSlice";
 function Editpost({
   setEditorText,
   handleImage,
-  handleVideo,
-  handlePdf,
   submitForm,
   editorText,
   isEdit,
   updateEditedPostFn,
-  pdf,
 }) {
   const navigate = useNavigate();
 
@@ -27,13 +24,13 @@ function Editpost({
   }
   const loginData = useSelector((state) => state.auth.loginData);
   const getUserDetails = useSelector((state) => state.users.getUserDetails);
-  const _id = loginData._id;
-
+  const _id = loginData?._id;
+  const dispatch = useDispatch();
   useEffect(() => {
-    getUserDetailsFn(_id);
-  }, [_id]);
+    dispatch(getUserDetailsFn(_id));
+  }, [_id, dispatch]);
 
-  const { avatar, username, fullName } = getUserDetails;
+  const { avatar } = getUserDetails;
 
   return (
     <div className="w-full">
@@ -63,29 +60,7 @@ function Editpost({
                 image
               </span>
             </label>
-            {/* <label>
-              <input
-                type="file"
-                accept="video/*"
-                className="invisible  w-4"
-                onChange={handleVideo}
-              />
-              <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
-                videocam{" "}
-              </span>
-            </label> */}
-            {/* <label>
-              <input
-                name="userfile"
-                type="file"
-                className="invisible w-4"
-                accept="application/pdf"
-                onChange={handlePdf}
-              />
-              <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
-                picture_as_pdf
-              </span>
-            </label> */}
+
             <span class="material-icons text-sky-500 text-sm mt-1 ml-2">
               <label>
                 <Emoji setEditorText={setEditorText} />
@@ -119,66 +94,5 @@ function Editpost({
     </div>
   );
 }
-
-/* <div className="flex justify-start items-center h-4  ">
-            <label>
-              <input
-                type="file"
-                accept="image/*"
-                className="invisible w-4 "
-                onChange={handleImage}
-              />
-              <span className="material-icons  cursor-pointer text-sm h-4 w-4 text-center text-gray-600 rounded-full hover:bg-blue-400">
-                image
-              </span>
-            </label>
-            <label>
-              <input
-                type="file"
-                accept="video/*"
-                className="invisible  w-4"
-                onChange={handleVideo}
-              />
-              <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
-                videocam{" "}
-              </span>
-            </label>
-            <label>
-              <input
-                name="userfile"
-                type="file"
-                className="invisible w-4"
-                accept="application/pdf"
-                onChange={handlePdf}
-              />
-              <span className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400">
-                picture_as_pdf
-              </span>
-            </label>
-            <label>
-              <Emoji setEditorText={setEditorText} />
-            </label>
-
-            <label>
-              {isEdit ? (
-                <span
-                  className="material-icons cursor-pointer text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400"
-                  onClick={postEditedFn}
-                >
-                  {" "}
-                  update
-                </span>
-              ) : (
-                <span
-                  onClick={submitForm}
-                  title="add post"
-                  className="material-icons cursor-pointer ml-64 text-sm h-5 w-5 text-center text-gray-600 rounded-full hover:bg-blue-400"
-                >
-                  {" "}
-                  send
-                </span>
-              )}
-            </label>
-          </div> */
 
 export default Editpost;

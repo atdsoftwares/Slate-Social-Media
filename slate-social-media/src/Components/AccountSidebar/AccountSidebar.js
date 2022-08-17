@@ -24,16 +24,16 @@ function AccountSidebar() {
 
   return (
     <div>
-      <div class="py-3 px-6  fixed right-0">
-        <div class="search-bar items-center  flex text-center rounded-full bg-gray-600">
+      <div class="p-2 fixed right-0  ">
+        <div class="search-bar items-center  flex text-center rounded-full">
           <input
             type="text"
             placeholder="Search tweaks"
-            class="px-4 py-2 bg-gray-100 rounded-full focus:outline-none focus:bg-white focus:border-gray-300"
+            class="p-2 rounded-full  focus:bg-white focus:border-gray-300"
           />
         </div>
-        <div class="trending bg-gray-200 rounded-2xl my-4 py-2">
-          <div class="trend-title flex justify-between px-4 py-2">
+        <div class="trending bg-gray-200 rounded-2xl my-4 p-2  ">
+          <div class="trend-title flex justify-between px-4 p-2">
             <h2 class="font-bold text-lg">Trends For You</h2>
             <span>
               <span class="material-icons">trending_up</span>
@@ -50,28 +50,20 @@ function AccountSidebar() {
           <div class="trending-list border-t-2 border-gray-300 py-2">
             <div class="trending-topic px-5 items-center text-sm font-thin flex justify-between">
               <p class="text-black">Trending in Technology</p>
-              <span class="material-icons">trending_up</span>
-            </div>
-            <h3 class="font-bold text-md px-5">#MyDukaan</h3>
-            <span class="text-black text-sm font-thin px-5">24K Tweets</span>
-          </div>
-          <div class="trending-list border-t-2 border-gray-300 py-2">
-            <div class="trending-topic px-5 items-center text-sm font-thin flex justify-between">
-              <p class="text-black">Trending in Technology</p>
               <i class="fa-solid fa-chevron-down"></i>
             </div>
             <h3 class="font-bold text-md px-5">#IndianStartups</h3>
             <span class="text-black text-sm font-thin px-5">12.4K Tweets</span>
           </div>
 
-          <div class="flex justify-end flex-col   ">
+          <div class="flex justify-end flex-col overflow-y-auto bg-red-200 h-auto mb-12">
             <h1 class="bg-white p-2 font-bold rounded-lg border border-gray-200 w-auto text-gray-900">
               {" "}
               People you dont't know
             </h1>
             {getUsers &&
               getUsers.map((user) => (
-                <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900  overflow-auto h-auto">
+                <ul class="bg-white rounded-lg border border-gray-200 w-auto text-gray-900 h-auto">
                   <li class="px-6 py-2 border-b border-gray-200 rounded-t-lg flex justify-around  items-center">
                     <Link to={`/ViewProfile/${user._id}`}>
                       <div class="flex justify-center items-center">

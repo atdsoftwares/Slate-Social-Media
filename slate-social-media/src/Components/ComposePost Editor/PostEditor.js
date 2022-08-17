@@ -20,23 +20,16 @@ function Posteditor() {
 
   const dispatch = useDispatch();
 
-  const _id = loginData._id;
+  const _id = loginData?._id;
 
   useEffect(() => {
-    dispatch(getUserDetailsFn(_id));
+    getUserDetailsFn(_id);
   }, []);
 
   const { avatar, username, fullName } = getUserDetails;
 
   function handleImage(e) {
     setImage(URL.createObjectURL(e.target.files[0]));
-  }
-  function handlePdf(e) {
-    setPdf(URL.createObjectURL(e.target.files[0]));
-  }
-
-  function handleVideo(e) {
-    setVideo(URL.createObjectURL(e.target.files[0]));
   }
 
   const post = {
@@ -67,8 +60,6 @@ function Posteditor() {
           <Editpost
             setEditorText={setEditorText}
             handleImage={handleImage}
-            handleVideo={handleVideo}
-            handlePdf={handlePdf}
             submitForm={submitForm}
             editorText={editorText}
           />
@@ -81,23 +72,9 @@ function Posteditor() {
       >
         <h3 className="text-lg"> preview your data</h3>
         <div class="flex justify-center items-center p-2">
-          {pdf && (
-            <div>
-              <embed alt="not found pdf" className="w-32 h-auto" src={pdf} />
-            </div>
-          )}
-
           {image && (
             <div>
               <img alt="not found" className="w-28 m-2 h-auto" src={image} />
-            </div>
-          )}
-
-          {video && (
-            <div>
-              <video className="w-28 h-auto" controls>
-                <source src={video} type="video/mp4" />
-              </video>
             </div>
           )}
         </div>

@@ -16,17 +16,8 @@ function Commentsmodel({ commentsdata }) {
   const composeComment = useSelector((state) => state.comments.composeComment);
   const [commentBoxInput, setCommentBoxInput] = useState();
 
-  const {
-    _id,
-    avatar,
-    fullName,
-    content,
-    image,
-    video,
-    username,
-    comments,
-    pdf,
-  } = commentsdata;
+  const { _id, avatar, fullName, content, image, username, comments } =
+    commentsdata;
 
   const comment = commentBoxInput;
   const dispatch = useDispatch();
@@ -67,20 +58,9 @@ function Commentsmodel({ commentsdata }) {
           <div class="content-container">
             <div class="content-data">
               {image ? (
-                <img class="w-full p-2 h-auto" src={image} />
+                <img class="w-full p-2 h-auto" src={image} alt="images" />
               ) : (
                 <div>{null} </div>
-              )}
-              {video ? (
-                <video class="w-full p-2 h-auto" src={video} controls />
-              ) : (
-                <div>{null} </div>
-              )}
-
-              {pdf ? (
-                <embed class="w-full p-2 h-36" src={pdf} />
-              ) : (
-                <div> {null}</div>
               )}
             </div>
           </div>

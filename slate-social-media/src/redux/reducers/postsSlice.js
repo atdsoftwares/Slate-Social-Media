@@ -60,12 +60,10 @@ export const deletePostFn = createAsyncThunk(
   }
 );
 
-export function editPostFn(_id, image, video, content, pdf) {
+export function editPostFn(_id, image, content) {
   localStorage.setItem("id", _id);
   localStorage.setItem("image", image);
-  localStorage.setItem("video", video);
   localStorage.setItem("content", content);
-  localStorage.setItem("pdf", pdf);
   toast.success("Post can be  edited");
 }
 

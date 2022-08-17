@@ -5,7 +5,7 @@ import EditUserProfile from "../EditUserProfile/EditUserProfile";
 
 function EditProfileModal() {
   const loginData = useSelector((state) => state.auth.loginData);
-  const { avatar, fullName, username, bio, link } = loginData;
+  const { avatar, fullName, username, bio, link } = loginData && loginData;
   const [isOpen, setIsOpen] = useState(false);
 
   function toggleModal() {
